@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('uses', function (Blueprint $table) {
 
             $table->string('position');
-            $table->int('size');
+            $table->integer('size');
             $table->unsignedBigInteger('design_id');
             $table->unsignedBigInteger('clothes_id');
 
