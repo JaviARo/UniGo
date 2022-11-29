@@ -6,15 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('uses', function (Blueprint $table) {
-
+        Schema::create('properties', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->binary('img');
             $table->string('position');
             $table->integer('size');
             $table->unsignedBigInteger('design_id');
@@ -33,13 +30,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('uses');
+        Schema::dropIfExists('properties');
     }
 };

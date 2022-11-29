@@ -18,6 +18,7 @@ class ClothesController extends Controller
     {
         $clothes = new clothes();
         $clothes->name = $request->name;
+        $clothes->img = $request->img;
 
         $clothes->save();
     }
@@ -32,6 +33,7 @@ class ClothesController extends Controller
     {
         $clothes = clothes::findOrFail($request->id);
         $clothes->name = $request->name;
+        $clothes->img = $request->img;
 
         $clothes->save();
         return $clothes;

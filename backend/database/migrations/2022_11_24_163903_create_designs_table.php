@@ -6,15 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->binary('img');
             $table->boolean('favourite');
             $table->unsignedBigInteger('app_user_id');
             $table->timestamps();
@@ -26,11 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('designs');

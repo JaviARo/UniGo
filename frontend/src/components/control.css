@@ -1,0 +1,21 @@
+.icon{
+  height: 4em;
+  width: 4em;
+}
+
+#header{
+  height: 7em;
+  background-image: 
+    linear-gradient(
+      rgba(206, 181, 167, 1), 
+      rgba(206, 181, 167, 0));
+}
+
+#footer{
+  height: 7em;
+  background-image: 
+    linear-gradient(
+      rgba(206, 181, 167, 0), 
+      rgba(206, 181, 167, 1));
+  margin-top: auto;
+}

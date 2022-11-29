@@ -12,34 +12,34 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(AppUserController::class)->group(function () {
-    Route::get('/AppUsers', 'index');
-    Route::post('/AppUser', 'store');
-    Route::get('/AppUser/{id}', 'show');
-    Route::put('/AppUser/{id}', 'update');
-    Route::delete('/AppUser/{id}', 'destroy');
+    Route::get('/appUsers', 'index');
+    Route::post('/appUser', 'store');
+    Route::get('/appUser/{id}', 'show');
+    Route::put('/appUser/{id}', 'update');
+    Route::delete('/appUser/{id}', 'destroy');
 });
 
 Route::controller(ClothesController::class)->group(function () {
-    Route::get('/Clothes', 'index');
-    Route::post('/Cloth', 'store');
-    Route::get('/Cloth/{id}', 'show');
-    Route::put('/Cloth/{id}', 'update');
-    Route::delete('/Cloth/{id}', 'destroy');
+    Route::get('/clothes', 'index');
+    Route::post('/cloth', 'store');
+    Route::get('/cloth/{id}', 'show');
+    Route::put('/cloth/{id}', 'update');
+    Route::delete('/cloth/{id}', 'destroy');
 });
 
 Route::controller(DesignController::class)->group(function () {
-    Route::get('/Designs', 'index');
-    Route::post('/Design', 'store');
-    Route::get('/Design/{id}', 'show');
-    Route::put('/Design/{id}', 'update');
-    Route::delete('/Design/{id}', 'destroy');
+    Route::get('/designs', 'index');
+    Route::post('/design', 'store');
+    Route::get('/design/{id}', 'show');
+    Route::put('/design/{id}', 'update');
+    Route::delete('/design/{id}', 'destroy');
 });
 
-Route::controller(UsesController::class)->group(function () {
-    Route::get('/Uses', 'index');
-    Route::post('/Use', 'store');
-    Route::get('/Use/{id}', 'show');
-    Route::put('/Use/{id}', 'update');
-    Route::delete('/Use/{id}', 'destroy');
+Route::controller(PropertiesController::class)->group(function () {
+    Route::get('/properties', 'index');
+    Route::post('/property', 'store');
+    Route::get('/property/{id}', 'show');
+    Route::put('/property/{id}', 'update');
+    Route::delete('/property/{id}', 'destroy');
 });
 

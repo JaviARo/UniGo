@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class clothes extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'img'];
 
-    public function uses(){
-        return $this->belongsTo('App\Models\Uses');
+    public function properties(){
+        return $this->belongsTo('App\Models\Properties');
     }
 }

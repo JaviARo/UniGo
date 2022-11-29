@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class design extends Model
 {
     use HasFactory;
-    protected $fillable = ['favourite', 'app_user_id'];
+    protected $fillable = ['name', 'img', 'favourite', 'app_user_id'];
 
     public function app_users(){
         return $this->hasMany('App\Models\App_user');
     }
 
-    public function uses(){
-        return $this->belongsTo('App\Models\Uses');
+    public function properties(){
+        return $this->belongsTo('App\Models\Properties');
     }
 }
