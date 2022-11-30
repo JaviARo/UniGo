@@ -1,21 +1,36 @@
-.icon{
+.icon {
   height: 4em;
   width: 4em;
 }
 
-#header{
+#header {
   height: 7em;
-  background-image: 
-    linear-gradient(
-      rgba(206, 181, 167, 1), 
-      rgba(206, 181, 167, 0));
+  background-image: linear-gradient(
+    rgba(206, 181, 167, 1),
+    rgba(206, 181, 167, 0)
+  );
+  
 }
 
-#footer{
+#footer {
   height: 7em;
-  background-image: 
-    linear-gradient(
-      rgba(206, 181, 167, 0), 
-      rgba(206, 181, 167, 1));
+  background-image: linear-gradient(
+    rgba(206, 181, 167, 0),
+    rgba(206, 181, 167, 1)
+  );
   margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row{
+  height: 7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid{
+  align-items: center;
 }
