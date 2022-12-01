@@ -3,7 +3,7 @@ import "./clothesComponent.css";
 
 function ClothesComponent() {
   return (
-    <div>
+    <div>git 
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className="gutter-row" span={10}>
           <div class="canvas"></div>
