@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\AppUserController;
 use App\Http\Controllers\Api\ClothesController;
-use App\Http\Controllers\Api\DesignController;
+use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\UsesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,12 +27,12 @@ Route::controller(ClothesController::class)->group(function () {
     Route::delete('/cloth/{id}', 'destroy');
 });
 
-Route::controller(DesignController::class)->group(function () {
-    Route::get('/designs', 'index');
-    Route::post('/design', 'store');
-    Route::get('/design/{id}', 'show');
-    Route::put('/design/{id}', 'update');
-    Route::delete('/design/{id}', 'destroy');
+Route::controller(ImageController::class)->group(function () {
+    Route::get('/images', 'index');
+    Route::post('/image', 'store');
+    Route::get('/image/{id}', 'show');
+    Route::put('/image/{id}', 'update');
+    Route::delete('/image/{id}', 'destroy');
 });
 
 Route::controller(PropertiesController::class)->group(function () {

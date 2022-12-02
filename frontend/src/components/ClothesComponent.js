@@ -3,16 +3,16 @@ import "./clothesComponent.css";
 
 function ClothesComponent() {
   return (
-    <div>git 
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+    <div>
+      {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className="gutter-row" span={10}>
           <div class="canvas"></div>
         </Col>
         <Col className="gutter-row" span={10}>
           <div class="canvas"></div>
         </Col>
-      </Row>
-      {/* <Row justify="center">
+      </Row> */}
+      <Row justify="center">
         <Col span={9}>
           <div class="canvas"></div>
         </Col>
@@ -20,7 +20,7 @@ function ClothesComponent() {
         <Col span={9}>
           <div class="canvas"></div>
         </Col>
-      </Row> */}
+      </Row>
     </div>
   );
 }

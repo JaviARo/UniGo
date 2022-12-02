@@ -11,6 +11,6 @@ class app_user extends Model
     protected $fillable = ['dni', 'name', 'username', 'password', 'email', 'type'];
 
     public function design(){
-        return $this->belongsTo('App\Models\Design');
+        return $this->belongsTo('App\Models\Image');
     }
 }
