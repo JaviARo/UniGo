@@ -1,8 +1,13 @@
-/* #neverita {
-  height: 75% max-content;
-} */
+#contentHeight {
+  display: flex;
+  height: 76vh;
+  align-items: center;
+  justify-content: center;
+}
 
 #contentBackground {
   background-color: rgba(206, 181, 167, 1);
   border-radius: 5px;
+  height: 70vh;
+  width: 75vw;
 }

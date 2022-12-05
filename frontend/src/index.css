@@ -3,6 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #D9D9D9;
+  font-family: 'Raleway', sans-serif;
 }
 
 #root {

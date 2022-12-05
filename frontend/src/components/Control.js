@@ -6,11 +6,11 @@ export function Header() {
     <div id="header">
       <Row align="middle">
         <Col className="row" span={6}>
-          <img class="icon" src="/img/info.png" alt="" />
+          <img className="icon" src="/img/info.png" alt="" />
         </Col>
         <Col className="row" span={12}></Col>
         <Col className="row" span={6}>
-          <img class="icon" src="/img/config.png" alt="" />
+          <img className="icon" src="/img/config.png" alt="" />
         </Col>
       </Row>
     </div>
@@ -20,7 +20,7 @@ export function Header() {
 export function Footer() {
   return (
     <div id="footer">
-      <img class="icon" src="/img/logo1.png" alt="" />
+      <img className="icon" src="/img/logo1.png" alt="" />
     </div>
   );
 }
