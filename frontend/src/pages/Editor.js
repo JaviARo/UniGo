@@ -1,5 +1,5 @@
 import { Header, Footer } from "../components/Control";
-import Content from "../components/Content"
+import FilledContent from "../components/FilledContent"
 import './editor.css'
 
 function Editor() {
@@ -7,9 +7,9 @@ function Editor() {
     <>
       <div id="editorPage">
         <Header />
-        <Content>
+        <FilledContent>
           <h1>Diseño</h1>
-        </Content>
+        </FilledContent>
         <Footer />
       </div>
     </>

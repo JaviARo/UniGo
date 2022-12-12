@@ -1,0 +1,12 @@
+#designContentHeight {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#designContentBackground {
+  height: 70vh;
+  width: 75vw;
+  overflow: auto;
+}

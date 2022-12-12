@@ -1,11 +1,11 @@
-#contentHeight {
+#filledContentHeight {
   display: flex;
   height: 76vh;
   align-items: center;
   justify-content: center;
 }
 
-#contentBackground {
+#filledContentBackground {
   background-color: rgba(206, 181, 167, 1);
   border-radius: 5px;
   height: 70vh;
