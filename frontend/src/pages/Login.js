@@ -1,3 +1,4 @@
+import FormLabel from "../components/FormLabel";
 import "./login.css";
 
 function Login() {
@@ -8,6 +9,11 @@ function Login() {
           <h1 id="uni">Uni</h1>
           <h1 id="go">Go</h1>
         </div>
+        <form>
+          <FormLabel label="Nombre de usuario" name="username"/>
+          <FormLabel label="Contraseña" name="password"/>
+          <input type="submit" value="Iniciar sesión"></input>
+        </form>
       </div>
     </div>
   );

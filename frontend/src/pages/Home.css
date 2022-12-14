@@ -23,7 +23,7 @@ body{
   font-size: larger;
 }
 
-#name {
+#homePage #name {
   position: relative;
   display: inline-block;
   top: -30%;
@@ -31,12 +31,12 @@ body{
   font-size: large;
 }
 
-#uni {
+#homePage #uni {
   color: rgba(4, 104, 101, 1);
   float: left;
 }
 
-#go {
+#homePage #go {
   color: rgba(206, 181, 167, 1);
   float: left;
 }
