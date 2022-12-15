@@ -1,5 +1,5 @@
 import React from "react";
-import "./formLabel.css";
+// import "./formLabel.css";
 
 function FormLabel(props) {
   function changeLabel() {
@@ -22,7 +22,13 @@ function FormLabel(props) {
       <div id={props.name}>
         <label id="label">
           <p id="labelText">{props.label}</p>
-          <input type="text" name={props.name} onClick={changeLabel} />
+          <input 
+            value={props.value}
+            // onChange={akaok}
+            type="text" 
+            name={props.name} 
+            onClick={changeLabel} 
+          />
         </label>
       </div>
     </div>

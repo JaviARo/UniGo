@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 function Home() {
@@ -28,13 +29,13 @@ function Home() {
         </div>
         {show ? (
           <div id="newCanvas">
-            <div className="sos">
-              <p class="textButton" onClick={changeHome}>
+            <div className="homeLinks">
+              <a href="/login" className="textButton">
                 Inicia sesión
-              </p>
-              <p class="textButton" onClick={changeHome}>
+              </a>
+              <a href="/register" className="textButton">
                 Registrarse
-              </p>
+              </a>
             </div>
             <div id="imgContainer">
               <img className="imgButton" src="img/google.png" alt="" />

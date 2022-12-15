@@ -1,4 +1,5 @@
 import FormLabel from "../components/FormLabel";
+import { HomeFooter } from "../components/Control";
 import "./login.css";
 
 function Login() {
@@ -16,6 +17,7 @@ function Login() {
             <input type="submit" value="Iniciar sesión"></input>
           </form>
         </div>
+        <HomeFooter />
       </div>
     </div>
   );

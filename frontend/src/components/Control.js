@@ -24,3 +24,13 @@ export function Footer() {
     </div>
   );
 }
+
+export function HomeFooter() {
+  return (
+    <div id="homeFooter">
+      <a href="/">
+        <img className="icon" src="/img/logo1.png" alt="" />
+      </a>
+    </div>
+  );
+}

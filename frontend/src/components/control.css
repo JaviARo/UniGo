@@ -30,6 +30,18 @@
   justify-content: center;
 }
 
+#homeFooter {
+  height: 12vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 2000;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .row{
   height: 7em;
   display: flex;
