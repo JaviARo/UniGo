@@ -3,7 +3,7 @@
   background-size: 100% 100%;
 }
 
-#loginPage {
+#registerPage {
   display: flex;
   height: 100vh;
   align-items: center;
@@ -11,7 +11,7 @@
   backdrop-filter: blur(5px);
 }
 
-#loginCanvas {
+#registerCanvas {
   /* position: fixed; */
   display: flex;
   flex-wrap: wrap;
@@ -26,7 +26,7 @@
   /* text-align: center; */
 }
 
-#loginPage #name {
+#registerPage #name {
   position: relative;
   /* display: inline-block; */
   font-family: 'Josefin Sans', sans-serif;
@@ -35,12 +35,12 @@
   height: fit-content;
 }
 
-#loginPage #uni {
+#registerPage #uni {
   color: rgba(4, 104, 101, 1);
   float: left;
 }
 
-#loginPage #go {
+#registerPage #go {
   color: rgba(60, 55, 68, 1);
   float: left;
 }
@@ -52,12 +52,8 @@ form {
   /* align-items: center; */
   top: 5vh;
   width:80%;
-  height: min-content;
-}
-
-/* modificar margen inferior */
-FormLabel {
-  margin-bottom: 4vh;
+  height: 50vh;
+  overflow: auto;
 }
 
 input[type="submit"] {
@@ -67,5 +63,5 @@ input[type="submit"] {
   font-family: 'Raleway', sans-serif;
   color:rgba(60, 55, 68, 1);
   font-size: large;
-  margin-top: 5vh;
+  /* margin-top: 3vh; */
 }
