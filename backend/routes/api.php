@@ -3,12 +3,14 @@
 use App\Http\Controllers\Api\AppUserController;
 use App\Http\Controllers\Api\ClothesController;
 use App\Http\Controllers\Api\ImageController;
-use App\Http\Controllers\Api\UsesController;
+use App\Http\Controllers\Api\PropertiesController;
+use App\Http\Controllers\Api\AuthController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/appUser', function (Request $request) {
+    return $request->app_user();
 });
 
 Route::controller(AppUserController::class)->group(function () {
@@ -42,4 +44,7 @@ Route::controller(PropertiesController::class)->group(function () {
     Route::put('/property/{id}', 'update');
     Route::delete('/property/{id}', 'destroy');
 });
+
+Route::post('login', [AuthController::class, 'signin']);
+Route::post('register', [AuthController::class, 'signup']);
 

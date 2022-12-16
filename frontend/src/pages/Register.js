@@ -6,13 +6,14 @@ import { HomeFooter } from "../components/Control";
 import "./register.css";
 import "./formLabel.css";
 
-const endpoint = "http://localhost:8000/api/appUser/";
+const endpoint = "http://localhost:8000/api/register/";
 
 function Register() {
   const [dni, setDni] = useState("");
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirm_password, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [type, setType] = useState('c');
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ function Register() {
         name: name,
         username: username,
         password: password,
+        confirm_password: confirm_password,
         email: email,
         type: type
       });
@@ -125,6 +127,8 @@ function Register() {
                 <label id="label">
                   <p id="labelText">Repita su contraseña</p>
                   <input
+                    value={confirm_password}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     type="text"
                     name="password"
                     // onClick={changeLabel}
