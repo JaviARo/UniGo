@@ -6,7 +6,7 @@ import { HomeFooter } from "../components/Control";
 import "./register.css";
 import "./formLabel.css";
 
-const endpoint = "http://localhost:8000/api/appUser";
+const endpoint = "http://localhost:8000/api/appUser/";
 
 function Register() {
   const [dni, setDni] = useState("");
@@ -14,6 +14,7 @@ function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [type, setType] = useState('c');
   const navigate = useNavigate();
 
   const store = async (e) => {
@@ -25,11 +26,12 @@ function Register() {
         username: username,
         password: password,
         email: email,
+        type: type
       });
     } catch (error) {
       console.error(error.response.data);
     }
-    navigate("/");
+    // navigate("/");
   };
 
   // function changeLabel() {
