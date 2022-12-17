@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'username_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
     ];
 
     public function design(){

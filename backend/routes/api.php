@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->app_user();
+    return $request->user();
 });
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/users', 'index');
-    Route::post('/user', 'store');
+    // Route::post('/user', 'store');
     Route::get('/user/{id}', 'show');
     Route::put('/user/{id}', 'update');
     Route::delete('/user/{id}', 'destroy');
@@ -45,6 +45,6 @@ Route::controller(PropertiesController::class)->group(function () {
     Route::delete('/property/{id}', 'destroy');
 });
 
-Route::post('login', [AuthController::class, 'signin']);
-Route::post('register', [AuthController::class, 'signup']);
+Route::post('/login', [AuthController::class, 'signin']);
+Route::post('/register', [AuthController::class, 'signup']);
 

@@ -14,19 +14,19 @@ class AppUserController extends Controller
         return $users;
     }
 
-    public function store(Request $request)
-    {
-        $user = new User();
-        $user->dni = $request->dni;
-        $user->name = $request->name;
-        $user->username = $request->username;
-        $user->password = $request->password;
-        $user->email = $request->email;
-        $user->type = $request->type;
+    // public function store(Request $request)
+    // {
+    //     $user = new User();
+    //     $user->dni = $request->dni;
+    //     $user->name = $request->name;
+    //     $user->username = $request->username;
+    //     $user->password = $request->password;
+    //     $user->email = $request->email;
+    //     $user->type = $request->type;
 
-        $user->save();
-        return $user;
-    }
+    //     $user->save();
+    //     return $user;
+    // }
 
     public function show($id)
     {
