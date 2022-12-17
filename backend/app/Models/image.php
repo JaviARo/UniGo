@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class image extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'img', 'favourite', 'app_user_id'];
+    protected $fillable = [
+        'name', 
+        'img', 
+        'user_id'
+    ];
 
-    public function app_users(){
-        return $this->hasMany('App\Models\App_user');
+    public function users(){
+        return $this->hasMany('App\Models\User');
     }
 
     public function properties(){

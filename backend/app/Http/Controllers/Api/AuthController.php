@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-use App\Models\app_user;
+use App\Models\User;
    
 class AuthController extends BaseController
 {
     public function signin(Request $request)
     {
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
-            $authUser = Auth::app_user(); 
+        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){ 
+            $authUser = Auth::User(); 
             $success['token'] =  $authUser->createToken('MyAuthApp')->plainTextToken; 
             $success['name'] =  $authUser->name;
    
@@ -28,6 +28,7 @@ class AuthController extends BaseController
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
         ]);
@@ -38,9 +39,9 @@ class AuthController extends BaseController
    
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        $app_user = app_user::create($input);
-        $success['token'] =  $app_user->createToken('MyAuthApp')->plainTextToken;
-        $success['name'] =  $app_user->name;
+        $user = User::create($input);
+        $success['token'] =  $user->createToken('MyAuthApp')->plainTextToken;
+        $success['name'] =  $user->name;
    
         return $this->sendResponse($success, 'User created successfully.');
     }

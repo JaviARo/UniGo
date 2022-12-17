@@ -12,13 +12,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->binary('img');
-            $table->boolean('favourite');
-            $table->unsignedBigInteger('app_user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
             
-            $table->foreign('app_user_id')
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('app_users')
+                ->on('users')
                 ->onDelete('cascade');
         });
     }

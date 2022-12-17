@@ -21,6 +21,7 @@ class PropertiesController extends Controller
         $property->img = $request->img;
         $property->position = $request->position;
         $property->size = $request->size;
+        $property->favourite = $request->favorite;
         $property->design_id = $request->design_id;
         $property->clothes_id = $request->clothes_id;
 
@@ -40,6 +41,7 @@ class PropertiesController extends Controller
         $property->img = $request->img;
         $property->position = $request->position;
         $property->size = $request->size;
+        $property->favourite = $request->favorite;
         $property->design_id = $request->design_id;
         $property->clothes_id = $request->clothes_id;
 

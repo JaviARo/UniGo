@@ -14,6 +14,7 @@ return new class extends Migration
             $table->binary('img');
             $table->string('position');
             $table->integer('size');
+            $table->boolean('favourite');
             $table->unsignedBigInteger('image_id');
             $table->unsignedBigInteger('clothes_id');
 

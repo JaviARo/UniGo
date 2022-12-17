@@ -20,8 +20,7 @@ class ImageController extends Controller
         $image = new image();
         $image->name = $request->name;
         $image->img = $request->img;
-        $image->favourite = $request->favourite;
-        $image->app_user_id = $request->app_user_id;
+        $image->user_id = $request->user_id;
 
         $image->save();
     }
@@ -37,8 +36,7 @@ class ImageController extends Controller
         $image = image::findOrFail($request->id);
         $image->name = $request->name;
         $image->img = $request->img;
-        $image->favourite = $request->favourite;
-        $image->app_user_id = $request->app_user_id;
+        $image->user_id = $request->user_id;
 
         $image->save();
     }

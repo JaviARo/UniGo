@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class properties extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'img', 'position', 'size', 'image_id', 'clothes_id'];
+    protected $fillable = [
+        'name',
+        'img', 
+        'position', 
+        'size', 
+        'favourite', 
+        'image_id', 
+        'clothes_id'
+    ];
 
     public function designs(){
         return $this->hasMany('App\Models\Image');

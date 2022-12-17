@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 // sanctum
 use Laravel\Sanctum\HasApiTokens;
 
-class app_user extends Authenticatable
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $fillable = [
@@ -28,7 +28,7 @@ class app_user extends Authenticatable
     ];
 
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'username_verified_at' => 'datetime',
     ];
 
     public function design(){
