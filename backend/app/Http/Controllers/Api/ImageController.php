@@ -18,8 +18,16 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $image = new image();
+
+        if( $request->hasFile('img') ) {
+            $file = $request->file('img');
+            $destinationPath = 'images/imagesTable/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+            $image->img = $destinationPath . $filename;
+        }
+
         $image->name = $request->name;
-        $image->img = $request->img;
         $image->user_id = $request->user_id;
 
         $image->save();
@@ -35,10 +43,20 @@ class ImageController extends Controller
     {
         $image = image::findOrFail($request->id);
         $image->name = $request->name;
-        $image->img = $request->img;
         $image->user_id = $request->user_id;
 
-        $image->save();
+        //$input = $request->all();
+
+        if( $request->hasFile('img') ) {
+            $file = $request->file('img');
+            $destinationPath = 'images/imagesTable/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+            $image->img = $destinationPath . $filename;
+        }
+
+        //$image->update($input);
+        return $image;
     }
 
     public function destroy($id)

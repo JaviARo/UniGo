@@ -17,8 +17,16 @@ class ClothesController extends Controller
     public function store(Request $request)
     {
         $clothes = new clothes();
+
+        if( $request->hasFile('img') ) {
+            $file = $request->file('img');
+            $destinationPath = 'images/clothesTable/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+            $clothes->img = $destinationPath . $filename;
+        }
+
         $clothes->name = $request->name;
-        $clothes->img = $request->img;
 
         $clothes->save();
     }

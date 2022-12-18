@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AppUserController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
@@ -40,9 +40,7 @@ class AppUserController extends Controller
         $user->dni = $request->dni;
         $user->name = $request->name;
         $user->username = $request->username;
-        $user->password = $request->password;
         $user->email = $request->email;
-        $user->type = $request->type;
 
         $user->save();
         return $user;
