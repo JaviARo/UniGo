@@ -56,6 +56,7 @@ class ImageController extends Controller
         }
 
         //$image->update($input);
+        $image->save();
         return $image;
     }
 

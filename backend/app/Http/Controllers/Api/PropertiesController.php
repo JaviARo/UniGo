@@ -17,12 +17,20 @@ class PropertiesController extends Controller
     public function store(Request $request)
     {
         $property = new properties();
+
+        if( $request->hasFile('img') ) {
+            $file = $request->file('img');
+            $destinationPath = 'images/propertiesTable/';
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+            $image->img = $destinationPath . $filename;
+        }
+
         $property->name = $request->name;
-        $property->img = $request->img;
         $property->position = $request->position;
         $property->size = $request->size;
-        $property->favourite = $request->favorite;
-        $property->design_id = $request->design_id;
+        $property->favourite = $request->favourite;
+        $property->image_id = $request->image_id;
         $property->clothes_id = $request->clothes_id;
 
         $property->save();
@@ -41,8 +49,8 @@ class PropertiesController extends Controller
         $property->img = $request->img;
         $property->position = $request->position;
         $property->size = $request->size;
-        $property->favourite = $request->favorite;
-        $property->design_id = $request->design_id;
+        $property->favourite = $request->favourite;
+        $property->image_id = $request->image_id;
         $property->clothes_id = $request->clothes_id;
 
         $property->save();

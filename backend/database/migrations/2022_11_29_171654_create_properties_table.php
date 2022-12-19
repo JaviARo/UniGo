@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('img');
+            $table->string('img');
             $table->string('position');
             $table->integer('size');
             $table->boolean('favourite');
