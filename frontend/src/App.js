@@ -1,11 +1,12 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Clothes from './pages/Clothes';
-import Editor from './pages/Editor';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Designs from './pages/Designs';
+import './App.css'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import Clothes from './pages/Clothes'
+import Editor from './pages/Editor'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Designs from './pages/Designs'
+import EditDesign from './pages/EditDesign'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="editor" element={<Editor />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="edit/:id" element={<EditDesign />} />
         {/* <Route component={PageNotFound} /> */}
       </Routes>
     </Router>

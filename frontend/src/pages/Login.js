@@ -11,6 +11,7 @@ const endpoint = "http://localhost:8000/api/login/";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const store = async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ function Login() {
     } catch (error) {
       console.error(error.response.data);
     }
-    // navigate("/");
+    navigate("/designs");
   };
   return (
     <div id="background">

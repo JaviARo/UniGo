@@ -6,6 +6,20 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: large;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(60, 55, 68, 1);
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
 #root {
   display: flex;
   flex-direction: column;

@@ -1,11 +1,11 @@
 import { Header, Footer } from "../components/Control";
 import FilledContent from "../components/FilledContent"
-import './editor.css'
+import './editDesign.css'
 
-function Editor() {
+function EditDesign() {
   return (
     <>
-      <div id="editorPage">
+      <div id="editDesign">
         <Header />
           <FilledContent />
         <Footer />
@@ -14,4 +14,4 @@ function Editor() {
   );
 }
 
-export default Editor;
+export default EditDesign;

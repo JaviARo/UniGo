@@ -20,7 +20,9 @@ export function Header() {
 export function Footer() {
   return (
     <div id="footer">
+      <a href="/designs">
       <img className="icon" src="/img/logo1.png" alt="" />
+      </a>
     </div>
   );
 }
