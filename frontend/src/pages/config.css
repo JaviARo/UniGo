@@ -1,0 +1,36 @@
+#configContentHeight {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#configButtons {
+  display: flex;
+  border-radius: 5px;
+  height: 60vh;
+  width: 80vw;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.configButton {
+  display: table;
+  background-color: rgba(206, 181, 167, 1);
+  width: 100%;
+  height: 15%;
+  font-family: 'Raleway', sans-serif;
+  color: rgba(60, 55, 68, 1);
+  font-size: x-large;
+  border-radius: 5px;
+  border: 0;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+
+
