@@ -52,6 +52,7 @@ Route::controller(PropertiesController::class)->group(function () {
     Route::get('/properties', 'index');
     Route::post('/property', 'store');
     Route::get('/property/{id}', 'show');
+    Route::get('/properties/user/{id}', 'showUser');
     Route::put('/property/{id}', 'update');
     Route::delete('/property/{id}', 'destroy');
 });

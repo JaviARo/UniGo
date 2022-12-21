@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import Designs from './pages/Designs'
 import EditDesign from './pages/EditDesign'
 import Config from './pages/Config'
+import User from './pages/User'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="edit/:id" element={<EditDesign />} />
         <Route path="config" element={<Config />} />
+        <Route path="user" element={<User />} />
         {/* <Route component={PageNotFound} /> */}
       </Routes>
     </Router>

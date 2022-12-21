@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Col, Row } from "antd";
 import "./control.css";
 
@@ -10,7 +11,9 @@ export function Header() {
         </Col>
         <Col className="row" span={12}></Col>
         <Col className="row" span={6}>
-          <img className="icon" src="/img/config.png" alt="" />
+          <Link to="/config">
+            <img className="icon" src="/img/config.png" alt="" />
+          </Link>
         </Col>
       </Row>
     </div>
@@ -20,9 +23,9 @@ export function Header() {
 export function Footer() {
   return (
     <div id="footer">
-      <a href="/designs">
-      <img className="icon" src="/img/logo1.png" alt="" />
-      </a>
+      <Link to="/designs">
+        <img className="icon" src="/img/logo1.png" alt="" />
+      </Link>
     </div>
   );
 }
@@ -30,9 +33,9 @@ export function Footer() {
 export function HomeFooter() {
   return (
     <div id="homeFooter">
-      <a href="/">
+      <Link to="/">
         <img className="icon" src="/img/logo1.png" alt="" />
-      </a>
+      </Link>
     </div>
   );
 }

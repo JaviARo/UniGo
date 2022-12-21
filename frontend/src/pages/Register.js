@@ -68,26 +68,8 @@ const Register = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  // const store = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post(endpoint, {
-  //       dni: dni,
-  //       name: name,
-  //       username: username,
-  //       password: password,
-  //       confirm_password: confirm_password,
-  //       email: email,
-  //       type: type
-  //     });
-  //   } catch (error) {
-  //     console.error(error.response.data);
-  //   }
-  //   navigate("/designs");
-  // };
-
   const handleRegister = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Evita que se recarge la página por defecto
 
     setMessage("");
     setSuccessful(false);
@@ -95,9 +77,12 @@ const Register = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password).then(
+      AuthService.register(dni, name, username, email, type, password, confirm_password).then(
         (response) => {
+          console.log(response);
           setMessage(response.data.message);
+          localStorage.setItem("token", response.data.data.token);
+          console.log(response.data.data.token);
           setSuccessful(true);
         },
         (error) => {
@@ -114,6 +99,12 @@ const Register = () => {
       );
     }
   };
+
+  // const tokenNavigate = () => {
+  //   localStorage.setItem("token", response.data.token);
+  //   navigate("/designs");
+  // };
+
   // function changeLabel() {
   //   var label = document.getElementById(name);
 
@@ -123,20 +114,18 @@ const Register = () => {
 
   return (
     <>
-    <div id="background">
-      <div id="registerPage">
-        <div id="registerCanvas">
-          <div id="name">
-            <h1 id="uni">Uni</h1>
-            <h1 id="go">Go</h1>
-          </div>
-          <Form onSubmit={handleRegister} ref={form}>
-            {!successful && (
-              <div>
-              
-                <div className="form-group">
-                  <label htmlFor="name">Nombre</label>
-                    {/* <p id="labelText">Nombre</p> */}
+      <div id="background">
+        <div id="registerPage">
+          <div id="registerCanvas">
+            <div id="name">
+              <h1 id="uni">Uni</h1>
+              <h1 id="go">Go</h1>
+            </div>
+            <Form onSubmit={handleRegister} ref={form}>
+              {!successful && (
+                <div>
+                  <div className="form-group">
+                    <label htmlFor="name">Nombre</label>
                     <Input
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -146,12 +135,10 @@ const Register = () => {
                       className="form-control"
                       validations={[required]}
                     />
-                </div>
-              
-              
-                <div className="form-group">
-                  <label htmlFor="username">Nombre de usuario</label>
-                    {/* <p id="labelText">Nombre de usuario</p> */}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="username">Nombre de usuario</label>
                     <Input
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
@@ -161,12 +148,10 @@ const Register = () => {
                       className="form-control"
                       validations={[required, vusername]}
                     />
-                </div>
-              
-              
-                <div className="form-group">
-                  <label htmlFor="dni">DNI/CIF</label>
-                    {/* <p id="labelText">DNI/CIF</p> */}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="dni">DNI/CIF</label>
                     <Input
                       value={dni}
                       onChange={(e) => setDni(e.target.value)}
@@ -176,12 +161,10 @@ const Register = () => {
                       className="form-control"
                       validations={[required]}
                     />
-                </div>
-              
-              
-                <div className="form-group">
-                  <label htmlFor="email">Correo electrónico</label>
-                    {/* <p id="labelText">Correo electrónico</p> */}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="email">Correo electrónico</label>
                     <Input
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -191,12 +174,10 @@ const Register = () => {
                       className="form-control"
                       validations={[required, validEmail]}
                     />
-                </div>
-              
-              
-                <div className="form-group">
-                  <label htmlFor="password">Contraseña</label>
-                    {/* <p id="labelText">Contraseña</p> */}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="password">Contraseña</label>
                     <Input
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -206,12 +187,12 @@ const Register = () => {
                       className="form-control"
                       validations={[required, vpassword]}
                     />
-                </div>
-              
-              
-                <div className="form-group">
-                  <label htmlFor="confirm_password">Repita su contraseña</label>
-                    {/* <p id="labelText">Repita su contraseña</p> */}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="confirm_password">
+                      Repita su contraseña
+                    </label>
                     <Input
                       value={confirm_password}
                       onChange={(e) => setConfirmPassword(e.target.value)}
@@ -221,32 +202,35 @@ const Register = () => {
                       className="form-control"
                       validations={[required, vpassword]}
                     />
+                  </div>
+
+                  <div className="form-group">
+                    <button className="btn btn-primary btn-block">
+                      Registrarse
+                    </button>
+                  </div>
+                  {/* <Input type="submit" value="Registrarse"></Input>*/}
                 </div>
-              
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">Registrarse</button>
-              </div>
-               {/* <Input type="submit" value="Registrarse"></Input> */}
-              </div>
-            )}
-            {message && (
-              <div className="form-group">
-                <div
-                  className={
-                    successful ? "alert alert-success" : "alert alert-danger"
-                  }
-                  role="alert"
-                >
-                  {message}
+              )}
+              { message && successful && navigate("/designs")}
+              {message && (
+                <div className="form-group">
+                  <div
+                    className={
+                      successful ? "alert alert-success" : "alert alert-danger"
+                    }
+                    role="alert"
+                  >
+                    {message}
+                  </div>
                 </div>
-              </div>
-            )}
-            <CheckButton style={{ display: "none" }} ref={checkBtn} />
-          </Form>
+              )}
+              <CheckButton style={{ display: "none" }} ref={checkBtn} />
+            </Form>
+          </div>
+          <HomeFooter />
         </div>
-        <HomeFooter />
       </div>
-    </div>
     </>
   );
 };

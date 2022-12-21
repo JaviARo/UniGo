@@ -31,7 +31,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function images(){
+        return $this->belongsTo('App\Models\image');
+    }
+
     public function design(){
-        return $this->belongsTo('App\Models\Image');
+        return $this->belongsTo('App\Models\design');
     }
 }

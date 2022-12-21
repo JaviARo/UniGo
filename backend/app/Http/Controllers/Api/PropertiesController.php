@@ -42,6 +42,12 @@ class PropertiesController extends Controller
         return $property;
     }
 
+    public function showUser($id)
+    {
+        $property = properties::find($id);
+        return $property;
+    }
+
     public function update(Request $request, $id)
     {
         $property = properties::findOrFail($request->id);

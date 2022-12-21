@@ -1,4 +1,5 @@
 import { Header, Footer } from "../components/Control";
+import { Link } from "react-router-dom";
 import "./config.css";
 
 function Config() {
@@ -7,18 +8,18 @@ function Config() {
       <Header />
       <div id="configContentHeight">
         <div id="configButtons">
-          <a className="configButton" href="/designs">
-            <p className="configButtonText">Ver datos de usuario</p>
-          </a>
-          <a className="configButton" href="/designs">
-            <p className="configButtonText">Contacto</p>
-          </a>
-          <a className="configButton" href="/designs">
-            <p className="configButtonText">Modo oscuro</p>
-          </a>
-          <a className="configButton" href="/designs">
-            <p className="configButtonText">Cerrar sesión</p>
-          </a>
+          <Link to="/user" className="configButton">
+            <p>Ver datos de usuario</p>
+          </Link>
+          <Link to="/designs" className="configButton">
+            <p>Contacto</p>
+          </Link>
+          <Link to="/designs" className="configButton">
+            <p>Modo oscuro</p>
+          </Link>
+          <Link to="/" className="configButton">
+            <p id="configButtonSesion">Cerrar sesión</p>
+          </Link>
         </div>
       </div>
       <Footer />
