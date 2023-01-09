@@ -14,6 +14,11 @@ class DesignController extends Controller
         return $design;
     }
 
+    public function showByUserId($id) {
+        $designs = design::where('user_id',$id)->get();
+        return $designs;
+    }
+
     public function store(Request $request)
     {
         $design = new design();

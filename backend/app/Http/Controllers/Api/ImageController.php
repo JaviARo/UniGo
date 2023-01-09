@@ -15,6 +15,11 @@ class ImageController extends Controller
         return $images;
     }
 
+    public function showByUserId($id) {
+        $images = image::where('user_id',$id)->get();
+        return $images;
+    }
+    
     public function store(Request $request)
     {
         // $image = new image();
