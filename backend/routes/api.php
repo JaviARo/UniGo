@@ -56,7 +56,6 @@ Route::controller(DesignController::class)->group(function () {
     Route::get('/designs/user/{id}', 'showByUserId');
     Route::post('/design', 'store');
     Route::get('/design/{id}', 'show');
-    Route::get('/designs/user/{id}', 'showUser');
     Route::put('/design/{id}', 'update');
     Route::delete('/design/{id}', 'destroy');
 });

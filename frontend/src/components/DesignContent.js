@@ -3,23 +3,31 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import DesignComponent from "./DesignComponent"
 import "./designContent.css"
+import AuthService from '../services/auth.service'
 
 const endpoint = 'http://localhost:8000/api'
+const userId = AuthService.getCurrentUser().data.id;
 
 function DesignContent() {
   const [ designs, setDesigns ] = useState( [] )
 
   useEffect ( ()=> {
-    getAllDesigns()
+    // getAllDesigns()
+    getDesignsByUser();
   }, [])
 
   const getAllDesigns = async () => {
-    const response = await axios.get(`${endpoint}/properties`)
+    const response = await axios.get(`${endpoint}/designs`)
+    setDesigns(response.data)
+  }
+
+  const getDesignsByUser = async () => {
+    const response = await axios.get(`${endpoint}/designs/user/${userId}`)
     setDesigns(response.data)
   }
 
   const deleteDesign = async (id) => {
-    await axios.delete(`${endpoint}/property/${id}`)
+    await axios.delete(`${endpoint}/design/${id}`)
     getAllDesigns()
   }
 
