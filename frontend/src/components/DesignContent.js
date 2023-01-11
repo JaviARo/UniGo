@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import DesignComponent from "./DesignComponent"
+import {DesignComponent, CreateDesign} from "./DesignComponent"
 import "./designContent.css"
 import AuthService from '../services/auth.service'
 
@@ -37,6 +37,7 @@ function DesignContent() {
         { designs.map( (design) => (
           <DesignComponent key={design.id} id={design.id} name={design.name}/>
         ))} 
+        <CreateDesign/>
         
         {/* <DesignComponent/>
         <DesignComponent/>

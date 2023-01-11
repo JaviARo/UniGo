@@ -38,7 +38,6 @@ export function CreateDesign() {
         <Col className="rowDesign" span={9}>
           <div id="componentText">
             <div id="title">Crear nuevo diseño</div>
-            <div id="subtitle">Subtítulo</div>
           </div>
         </Col>
       </Row>
