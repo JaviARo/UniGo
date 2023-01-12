@@ -27,23 +27,25 @@ export function DesignComponent(props) {
 }
 
 export function CreateDesign() {
-  <a href={`/clothes`}>
-    <div id="component">
-      <Row align="middle">
-        <Col className="rowDesign" span={1}></Col>
-        <Col className="rowDesign" span={10}>
-          <div id="imgBackground"></div>
-        </Col>
-        <Col className="rowDesign" span={1}></Col>
-        <Col className="rowDesign" span={9}>
-          <div id="componentText">
-            <div id="title">Crear nuevo diseño</div>
-          </div>
-        </Col>
-      </Row>
-      {/* <div id="imgBackground"></div>
+  return (
+    <a href={`/clothes`}>
+      <div id="component">
+        <Row align="middle">
+          <Col className="rowDesign" span={1}></Col>
+          <Col className="rowDesign" span={10}>
+            <div id="imgBackground"></div>
+          </Col>
+          <Col className="rowDesign" span={1}></Col>
+          <Col className="rowDesign" span={9}>
+            <div id="componentText">
+              <div id="title">Crear nuevo diseño</div>
+            </div>
+          </Col>
+        </Row>
+        {/* <div id="imgBackground"></div>
           <div id="title">Título</div>
           <div id="subtitle">Subtítulo</div> */}
-    </div>
-  </a>;
+      </div>
+    </a>
+  );
 }

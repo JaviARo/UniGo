@@ -19,6 +19,11 @@ class DesignController extends Controller
         return $designs;
     }
 
+    public function countByUserId($id) {
+        return $this->showByUserId($id)->count();
+        // return $counter;
+    }
+
     public function store(Request $request)
     {
         $design = new design();
@@ -28,7 +33,7 @@ class DesignController extends Controller
             $destinationPath = 'images/designTable/';
             $filename = time() . '-' . $file->getClientOriginalName();
             $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
-            $image->img = $destinationPath . $filename;
+            $design->img = $destinationPath . $filename;
         }
 
         $design->name = $request->name;

@@ -54,6 +54,7 @@ Route::controller(ImageController::class)->group(function () {
 Route::controller(DesignController::class)->group(function () {
     Route::get('/designs', 'index');
     Route::get('/designs/user/{id}', 'showByUserId');
+    Route::get('/designs/count/{id}', 'countByUserId');
     Route::post('/design', 'store');
     Route::get('/design/{id}', 'show');
     Route::put('/design/{id}', 'update');
