@@ -6,7 +6,7 @@ import "./designContent.css";
 import AuthService from "../services/auth.service";
 
 const endpoint = "http://localhost:8000/api";
-const userId = AuthService.getCurrentUser().data.id;
+//const userId = AuthService.getCurrentUser().data.id;
 
 function DesignContent() {
   const [designs, setDesigns] = useState([]);
@@ -22,12 +22,12 @@ function DesignContent() {
   };
 
   const getDesignsByUser = async () => {
-    const response = await axios.get(`${endpoint}/designs/user/${userId}`);
+    const response = await axios.get(`${endpoint}/designs/user/${AuthService.userId}`);
     setDesigns(response.data);
   };
 
   async function getCountByUser() {
-    const response = await axios.get(`${endpoint}/designs/count/${userId}`);
+    const response = await axios.get(`${endpoint}/designs/count/${AuthService.userId}`);
     return response;
   };
 
@@ -36,20 +36,24 @@ function DesignContent() {
     getAllDesigns();
   };
 
-  if (getCountByUser() = 0) {
-    return (
-      <div id="designContentHeight">
-        <div id="designContentBackground">
+  const haveDesigns = () => {
+    if (getCountByUser() === 0) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  return (
+    <div id="designContentHeight">
+      {haveDesigns ? (
+        <a href={`/clothes`}>
           <div id="createFirstDesign">
-            <img className="icon" src="/img/info.png" alt="" />
-            <h1>Crear nuevo diseño</h1>
+            <img className="icon" src="/img/plus.png" alt="" />
+            <p>Crear nuevo diseño</p>
           </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div id="designContentHeight">
+        </a>
+      ) : (
         <div id="designContentBackground">
           {designs.map((design) => (
             <DesignComponent
@@ -59,18 +63,11 @@ function DesignContent() {
             />
           ))}
           <CreateDesign />
-
-          {/* <DesignComponent/>
-        <DesignComponent/>
-        <DesignComponent/>
-        <DesignComponent/>
-        <DesignComponent/>
-        <DesignComponent/>
-        <DesignComponent/> */}
         </div>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
 }
+
 
 export default DesignContent;
