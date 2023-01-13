@@ -6,7 +6,7 @@ import "./designContent.css";
 import AuthService from "../services/auth.service";
 
 const endpoint = "http://localhost:8000/api";
-//const userId = AuthService.getCurrentUser().data.id;
+const userId = AuthService.getCurrentUser().data.id;
 
 function DesignContent() {
   const [designs, setDesigns] = useState([]);
@@ -22,14 +22,14 @@ function DesignContent() {
   };
 
   const getDesignsByUser = async () => {
-    const response = await axios.get(`${endpoint}/designs/user/${AuthService.userId}`);
+    const response = await axios.get(`${endpoint}/designs/user/${userId}`);
     setDesigns(response.data);
   };
 
   async function getCountByUser() {
-    const response = await axios.get(`${endpoint}/designs/count/${AuthService.userId}`);
+    const response = await axios.get(`${endpoint}/designs/count/${userId}`);
     return response;
-  };
+  }
 
   const deleteDesign = async (id) => {
     await axios.delete(`${endpoint}/design/${id}`);
@@ -47,13 +47,6 @@ function DesignContent() {
   return (
     <div id="designContentHeight">
       {haveDesigns ? (
-        <a href={`/clothes`}>
-          <div id="createFirstDesign">
-            <img className="icon" src="/img/plus.png" alt="" />
-            <p>Crear nuevo diseño</p>
-          </div>
-        </a>
-      ) : (
         <div id="designContentBackground">
           {designs.map((design) => (
             <DesignComponent
@@ -64,10 +57,16 @@ function DesignContent() {
           ))}
           <CreateDesign />
         </div>
+      ) : (
+        <a href={`/clothes`}>
+          <div id="createFirstDesign">
+            <img className="icon" src="/img/plus.png" alt="" />
+            <p>Crear nuevo diseño</p>
+          </div>
+        </a>
       )}
     </div>
   );
 }
-
 
 export default DesignContent;
