@@ -13,7 +13,6 @@ import User from './pages/User'
 
 function App() {
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="clothes" element={<Clothes />} />
@@ -27,7 +26,6 @@ function App() {
         <Route path="user" element={<User />} />
         {/* <Route component={PageNotFound} /> */}
       </Routes>
-    </Router>
   );
 }
 
