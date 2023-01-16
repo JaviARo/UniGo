@@ -13,7 +13,7 @@ import FilledContent from "../components/FilledContent";
 
 describe("Editor", () => {
   it("Must have FilledContent", () => {
-    render(<FilledContent />);
-    // expect(require('../components/FilledContent.js').mock.calls.lenght.toBe(1));
+    // render(<FilledContent />);
+    expect(render(<FilledContent />));
   });
 });
