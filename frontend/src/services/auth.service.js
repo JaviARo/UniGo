@@ -40,7 +40,8 @@ const getCurrentUser = () => {
 };
 
 const userId = () => {
-  return getCurrentUser().data.id;
+  // return getCurrentUser().data.id;
+  return JSON.parse(localStorage.getItem("user.data.id"));
 } 
 
 const AuthService = {
