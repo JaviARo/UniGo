@@ -35,7 +35,7 @@ function ClothesComponent() {
               <a href={`/create`}>
                 <div className="canvas">
                   <div className="clothesBackground">
-                    <img src="../../../backend/public/${cloth.img}" alt=""/>
+                    <img src={require("../../../backend/public/${cloth.img}").default} alt=""/>
                   </div>
                   <p className="clothesName">{cloth.name}</p>
                 </div>

@@ -41,7 +41,8 @@ const getCurrentUser = () => {
 
 const userId = () => {
   // return getCurrentUser().data.id;
-  return JSON.parse(localStorage.getItem("user.data.id"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  return user.data.id;
 } 
 
 const AuthService = {
