@@ -22,37 +22,37 @@ class ImageController extends Controller
     
     public function store(Request $request)
     {
-        // $image = new image();
+        $image = new image();
 
-        // if( $request->hasFile('img') ) {
-        //     $file = $request->file('img');
-        //     $destinationPath = 'images/imagesTable/';
-        //     $filename = time() . '-' . $file->getClientOriginalName();
-        //     $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
-        //     $image->img = $destinationPath . $filename;
-        // }
-
-        // $image->name = $request->name;
-        // $image->user_id = $request->user_id;
-
-        // $image->save();
-
-        $request->validate([
-            'name' => 'required',
-            'user_id' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-  
-        $input = $request->all();
-  
-        if ($img = $request->file('img')) {
+        if( $request->hasFile('img') ) {
+            $file = $request->file('img');
             $destinationPath = 'images/imagesTable/';
-            $filename = date('YmdHis') . "." . $img->getClientOriginalExtension();
-            $img->move($destinationPath, $filename);
-            $input['img'] = "$filename";
+            $filename = time() . '-' . $file->getClientOriginalName();
+            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+            $image->img = $destinationPath . $filename;
         }
+
+        $image->name = $request->name;
+        $image->user_id = $request->user_id;
+
+        $image->save();
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'user_id' => 'required',
+        //     'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+  
+        // $input = $request->all();
+  
+        // if ($img = $request->file('img')) {
+        //     $destinationPath = 'images/imagesTable/';
+        //     $filename = date('YmdHis') . "." . $img->getClientOriginalExtension();
+        //     $img->move($destinationPath, $filename);
+        //     $input['img'] = "$filename";
+        // }
     
-        image::create($input);
+        // image::create($input);
     }
 
     public function show($id)

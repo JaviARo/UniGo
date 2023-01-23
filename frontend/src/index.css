@@ -19,6 +19,11 @@ p {
   font-family: 'Raleway', sans-serif;
 }
 
+input::placeholder {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(60, 55, 68, 1);
+}
+
 #root {
   display: flex;
   flex-direction: column;

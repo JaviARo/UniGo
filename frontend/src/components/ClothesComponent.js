@@ -32,11 +32,10 @@ function ClothesComponent() {
         <Row justify="start" gutter={[16, 16]}>
           {clothes.map((cloth) => (
             <Col span={12}>
-              <a href={`/create`}>
+              <a href={`/create/?cloth_id=`+cloth.id}>
                 <div className="canvas">
                   <div className="clothesBackground">
-                  backend\public\images\clothesTable\1673634013-patito_amarillo.jpg
-                    <img src={require("../../../backend/public/${cloth.img}").default} alt=""/>
+                    <img src={"http://localhost:8000/"+cloth.img} alt=""/>
                   </div>
                   <p className="clothesName">{cloth.name}</p>
                 </div>

@@ -23,6 +23,9 @@
 }
 
 .clothesBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #D9D9D9;
   height: 70px;
   width: 94px;
@@ -33,8 +36,9 @@
 }
 
 .clothesBackground img {
-  width: 90%;
-  height: 90%;
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
 }
 
 .clothesName {
