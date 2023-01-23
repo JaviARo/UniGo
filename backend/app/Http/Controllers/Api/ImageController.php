@@ -15,6 +15,11 @@ class ImageController extends Controller
         return $images;
     }
 
+    public function showByUserId($id) {
+        $images = image::where('user_id',$id)->get();
+        return $images;
+    }
+    
     public function store(Request $request)
     {
         $image = new image();
@@ -31,6 +36,23 @@ class ImageController extends Controller
         $image->user_id = $request->user_id;
 
         $image->save();
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'user_id' => 'required',
+        //     'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+  
+        // $input = $request->all();
+  
+        // if ($img = $request->file('img')) {
+        //     $destinationPath = 'images/imagesTable/';
+        //     $filename = date('YmdHis') . "." . $img->getClientOriginalExtension();
+        //     $img->move($destinationPath, $filename);
+        //     $input['img'] = "$filename";
+        // }
+    
+        // image::create($input);
     }
 
     public function show($id)
@@ -41,22 +63,42 @@ class ImageController extends Controller
 
     public function update(Request $request, $id)
     {
-        $image = image::findOrFail($request->id);
+        // $image = image::findOrFail($request->id);
+        // $image->name = $request->name;
+        // $image->user_id = $request->user_id;
+
+        // //$input = $request->all();
+
+        // if( $request->hasFile('img') ) {
+        //     $file = $request->file('img');
+        //     $destinationPath = 'images/imagesTable/';
+        //     $filename = time() . '-' . $file->getClientOriginalName();
+        //     $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
+        //     $image->img = $destinationPath . $filename;
+        // }
+
+        // //$image->update($input);
+        // $image->save();
+        // return $image;
+        $image = image::find($id);
         $image->name = $request->name;
         $image->user_id = $request->user_id;
-
-        //$input = $request->all();
-
-        if( $request->hasFile('img') ) {
-            $file = $request->file('img');
-            $destinationPath = 'images/imagesTable/';
-            $filename = time() . '-' . $file->getClientOriginalName();
-            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
-            $image->img = $destinationPath . $filename;
+  
+        if ($request->hasfile('img')) {
+            $destinationPath = 'images/imagesTable/'.$image->img;
+            if(File::exists($destinationPath))
+            {
+                File::delete($destinationPath);
+            }
+            $img = $request->file('img');
+            $filename = date('YmdHis') . "." . $img->getClientOriginalExtension();
+            $img->move('images/imagesTable/', $filename);
+            $image->img = $filename;
         }
 
-        //$image->update($input);
-        return $image;
+        // $image = image::find($id);
+        $image->update();
+        // Post::findOrFail($id)->update($input);
     }
 
     public function destroy($id)

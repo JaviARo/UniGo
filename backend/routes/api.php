@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ClothesController;
 use App\Http\Controllers\Api\ImageController;
-use App\Http\Controllers\Api\PropertiesController;
+use App\Http\Controllers\Api\DesignController;
 use App\Http\Controllers\Api\AuthController;
 
 use Illuminate\Http\Request;
@@ -21,6 +21,8 @@ Route::group( ['middleware' => ["auth:sanctum"]], function(){
     Route::controller(UserController::class)->group(function () {
         Route::get('/users', 'index');
         Route::get('/user/{id}', 'show');
+        Route::get('/user/{id}/designs', 'designs');
+        Route::get('/user/{id}/images', 'images');
         Route::put('/user/{id}', 'update');
         Route::delete('/user/{id}', 'destroy');
     });
@@ -42,17 +44,20 @@ Route::controller(ClothesController::class)->group(function () {
 
 Route::controller(ImageController::class)->group(function () {
     Route::get('/images', 'index');
+    Route::get('/images/user/{id}', 'showByUserId');
     Route::post('/image', 'store');
     Route::get('/image/{id}', 'show');
     Route::put('/image/{id}', 'update');
     Route::delete('/image/{id}', 'destroy');
 });
 
-Route::controller(PropertiesController::class)->group(function () {
-    Route::get('/properties', 'index');
-    Route::post('/property', 'store');
-    Route::get('/property/{id}', 'show');
-    Route::put('/property/{id}', 'update');
-    Route::delete('/property/{id}', 'destroy');
+Route::controller(DesignController::class)->group(function () {
+    Route::get('/designs', 'index');
+    Route::get('/designs/user/{id}', 'showByUserId');
+    Route::get('/designs/count/{id}', 'countByUserId');
+    Route::post('/design', 'store');
+    Route::get('/design/{id}', 'show');
+    Route::put('/design/{id}', 'update');
+    Route::delete('/design/{id}', 'destroy');
 });
 

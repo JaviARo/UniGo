@@ -1,0 +1,14 @@
+#userContentHeight {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#userContentBackground {
+  height: 65vh;
+  width: 80vw;
+  overflow: auto;
+  background-color: rgba(206, 181, 167, 1);
+  border-radius: 5px;
+}

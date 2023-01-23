@@ -10,7 +10,7 @@ class clothes extends Model
     use HasFactory;
     protected $fillable = ['name', 'img'];
 
-    public function properties(){
-        return $this->belongsTo('App\Models\Properties');
+    public function designs(){
+        return $this->belongsTo('App\Models\Design');
     }
 }

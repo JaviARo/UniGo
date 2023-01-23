@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class properties extends Model
+class design extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -14,15 +14,20 @@ class properties extends Model
         'position', 
         'size', 
         'favourite', 
+        'user_id',
         'image_id', 
         'clothes_id'
     ];
 
-    public function designs(){
-        return $this->hasMany('App\Models\Image');
+    public function user(){
+        return $this->hasMany('App\Models\User');
+    }
+
+    public function image(){
+        return $this->hasMany('App\Models\image');
     }
 
     public function clothes(){
-        return $this->hasMany('App\Models\Clothes');
+        return $this->hasMany('App\Models\clothes');
     }
 }

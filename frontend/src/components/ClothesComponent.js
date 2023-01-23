@@ -1,26 +1,49 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Col, Row } from "antd";
 import "./clothesComponent.css";
 
+const endpoint = "http://localhost:8000/api";
+
 function ClothesComponent() {
+  const [clothes, setClothes] = useState([]);
+
+  useEffect(() => {
+    getAllClothes();
+  }, []);
+
+  const getAllClothes = async () => {
+    const response = await axios.get(`${endpoint}/clothes`);
+    setClothes(response.data);
+  };
+
   return (
-    <div>
-      {/* <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col className="gutter-row" span={10}>
-          <div class="canvas"></div>
-        </Col>
-        <Col className="gutter-row" span={10}>
-          <div class="canvas"></div>
-        </Col>
-      </Row> */}
-      <Row justify="center">
-        <Col span={9}>
-          <div class="canvas"></div>
-        </Col>
-        <Col span={1}></Col>
-        <Col span={9}>
-          <div class="canvas"></div>
-        </Col>
-      </Row>
+    <div id="clothesContentHeight">
+      <div id="clothesContentBackground">
+        {/* <Row justify="center">
+          <Col span={9}>
+            <div class="canvas"></div>
+          </Col>
+          <Col span={1}></Col>
+          <Col span={9}>
+            <div class="canvas"></div>
+          </Col>
+        </Row> */}
+        <Row justify="start" gutter={[16, 16]}>
+          {clothes.map((cloth) => (
+            <Col span={12}>
+              <a href={`/create/?cloth_id=`+cloth.id}>
+                <div className="canvas">
+                  <div className="clothesBackground">
+                    <img src={"http://localhost:8000/"+cloth.img} alt=""/>
+                  </div>
+                  <p className="clothesName">{cloth.name}</p>
+                </div>
+              </a>
+            </Col>
+          ))}
+        </Row>
+      </div>
     </div>
   );
 }

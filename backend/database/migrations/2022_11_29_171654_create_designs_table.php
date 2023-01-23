@@ -8,16 +8,21 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('designs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->binary('img');
+            $table->string('img');
             $table->string('position');
             $table->integer('size');
             $table->boolean('favourite');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('image_id');
             $table->unsignedBigInteger('clothes_id');
 
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->foreign('image_id')
                 ->references('id')
                 ->on('images')
@@ -33,6 +38,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('designs');
     }
 };

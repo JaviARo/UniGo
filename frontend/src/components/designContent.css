@@ -6,7 +6,27 @@
 }
 
 #designContentBackground {
-  height: 70vh;
-  width: 75vw;
+  height: 65vh;
+  width: 80vw;
   overflow: auto;
+}
+
+#createFirstDesign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#createFirstDesign img {
+  height: 8em;
+  width: 8em;
+}
+
+#createFirstDesign p {
+  color: rgba(60, 55, 68, 1);
+  font-size: large;
+}
+
+#designContentHeight a {
+  text-decoration: none;
 }

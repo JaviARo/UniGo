@@ -1,5 +1,46 @@
+#clothesContentHeight {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#clothesContentBackground {
+  height: 65vh;
+  width: 85vw;
+  overflow: auto;
+}
+
 .canvas {
-  height: 125px;
+  display: flex;
+  height: max-content;
   background-color: rgba(206, 181, 167, 1);
   border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clothesBackground {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D9D9D9;
+  height: 70px;
+  width: 94px;
+  margin-left: 14px;
+  margin-right: 14px;
+  border-radius: 5px;
+  margin-top: 14px;
+}
+
+.clothesBackground img {
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+}
+
+.clothesName {
+  color: rgba(60, 55, 68, 1);
 }
