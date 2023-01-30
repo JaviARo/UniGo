@@ -6,9 +6,9 @@ import "./designContent.css";
 import AuthService from "../services/auth.service";
 
 const endpoint = "http://localhost:8000/api";
-const userId = AuthService.userId();
 
 function DesignContent() {
+  const userId = AuthService.userId();
   const [designs, setDesigns] = useState([]);
 
   useEffect(() => {

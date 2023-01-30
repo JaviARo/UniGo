@@ -5,9 +5,9 @@ import "./clothesComponent.css";
 import AuthService from "../services/auth.service";
 
 const endpoint = "http://localhost:8000/api";
-const userId = AuthService.userId();
 
 function ImagesComponent() {
+  const userId = AuthService.userId();
   const [images, setImages] = useState([]);
 
   const querystring = window.location.search;
