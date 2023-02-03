@@ -46,7 +46,7 @@ function DesignContent() {
 
   return (
     <div id="designContentHeight">
-      {haveDesigns ? (
+      {haveDesigns===true ? (
         <div id="designContentBackground">
           {designs.map((design) => (
             <DesignComponent
