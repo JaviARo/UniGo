@@ -5,9 +5,9 @@ import "./filledContent.css";
 import AuthService from "../services/auth.service";
 
 const endpoint = "http://localhost:8000/api";
-const userId = AuthService.userId();
 
 function FilledContent() {
+  const userId = AuthService.userId();
   const [cloth, setCloth] = useState([]);
   const [image, setImage] = useState([]);
 
