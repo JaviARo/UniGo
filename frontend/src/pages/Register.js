@@ -123,7 +123,7 @@ const Register = () => {
             </div>
             <Form onSubmit={handleRegister} ref={form}>
               {!successful && (
-                <div>
+                <div id="registerForm">
                   <div className="form-group">
                     <label htmlFor="name">Nombre</label>
                     <Input
@@ -205,14 +205,16 @@ const Register = () => {
                   </div>
 
                   <div className="form-group">
-                    <button className="btn btn-primary btn-block">
-                      Registrarse
-                    </button>
+                    <div id="buttonDiv">
+                      <button id="submitButton">
+                        Registrarse
+                      </button>
+                    </div>
                   </div>
                   {/* <Input type="submit" value="Registrarse"></Input>*/}
                 </div>
               )}
-              { message && successful && navigate("/designs")}
+              {message && successful && navigate("/designs")}
               {message && (
                 <div className="form-group">
                   <div

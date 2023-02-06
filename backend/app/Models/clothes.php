@@ -11,6 +11,6 @@ class clothes extends Model
     protected $fillable = ['name', 'img'];
 
     public function designs(){
-        return $this->belongsTo('App\Models\Design');
+        return $this->hasMany('App\Models\Design');
     }
 }

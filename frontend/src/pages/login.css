@@ -49,15 +49,19 @@ form {
   display: flex;
   flex-direction: column;
   position: relative;
-  /* align-items: center; */
-  top: 5vh;
   width:80%;
   height: min-content;
+  
+}
+
+#loginForm {
+  margin-top: 5vh;
 }
 
 /* modificar margen inferior */
-FormLabel {
-  margin-bottom: 4vh;
+#loginForm .form-group {
+  margin-bottom: 6vh;
+  color:rgba(60, 55, 68, 1);
 }
 
 input[type="submit"] {

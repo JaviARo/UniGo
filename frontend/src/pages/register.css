@@ -45,15 +45,22 @@
   float: left;
 }
 
-form {
+Form {
   display: flex;
   flex-direction: column;
-  position: relative;
-  /* align-items: center; */
   top: 5vh;
   width:80%;
   height: 50vh;
+}
+
+#registerForm {
+  position: relative;
   overflow: auto;
+}
+
+#registerForm .form-group {
+  margin-bottom: 1em;
+  color:rgba(60, 55, 68, 1);
 }
 
 input[type="submit"] {

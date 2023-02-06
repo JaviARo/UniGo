@@ -13,6 +13,7 @@
 }
 
 .canvas {
+  position: relative;
   display: flex;
   height: max-content;
   background-color: rgba(206, 181, 167, 1);
@@ -35,7 +36,7 @@
   margin-top: 14px;
 }
 
-.clothesBackground img {
+#imageOnClothes {
   width: 80%;
   height: 80%;
   border-radius: 5px;
@@ -43,4 +44,22 @@
 
 .clothesName {
   color: rgba(60, 55, 68, 1);
+}
+
+#plus {
+  width: 60%;
+  height: 80%;
+}
+
+#uploadImage {
+  width: 99%;
+  height: 99%;
+  opacity: 0;
+}
+
+#imgForm {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
 }

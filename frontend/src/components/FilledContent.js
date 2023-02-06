@@ -29,13 +29,14 @@ function FilledContent() {
     getThisCloth();
     if (imageId != null) {
       getImage();
+      // getImgStyles();
+      setImage_id(imageId);
+      setPosition();
+      setSize();
     }
-    getImgStyles();
-    setPosition();
-    setSize();
-    setClothes_id(clothId);
-    setImage_id(imageId);
 
+    setClothes_id(clothId);
+    
     setUser_id(userId);
     setFavourite("false");
   }, []);
@@ -62,14 +63,14 @@ function FilledContent() {
     });
   };
 
-  const getImgStyles = () => {
-    const imgImg = document.querySelector('#imageImg')
-    const style = getComputedStyle(imgImg);
-    const h = style.getPropertyValue(style[144]);
-    console.log(h);
-    console.log(style[159]);
-    console.log(style[278]);
-  };
+  // const getImgStyles = () => {
+  //   const imgImg = document.querySelector('#imageImg')
+  //   const style = getComputedStyle(imgImg);
+  //   const h = style.getPropertyValue(style[144]);
+  //   console.log(h);
+  //   console.log(style[159]);
+  //   console.log(style[278]);
+  // };
 
   const getThisCloth = async () => {
     const response = await axios.get(`${endpoint}/cloth/${clothId}`);
@@ -80,6 +81,14 @@ function FilledContent() {
     const response = await axios.get(`${endpoint}/image/${imageId}`);
     setImage(response.data);
   };
+
+  function showImage() {
+    if(imageId != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div id="filledContentHeight">
@@ -98,11 +107,13 @@ function FilledContent() {
             src={"http://localhost:8000/" + cloth.img}
             alt=""
           />
+          {showImage===true ? (
           <img
-            id="imageImg"
-            src={"http://localhost:8000/" + image.img}
-            alt=""
-          />
+          id="imageImg"
+          src={"http://localhost:8000/" + image.img}
+          alt=""
+        />
+          ) : null}
         </div>
         <div id="editButtons">
           <Link to={`/images/?cloth_id=` + clothId} className="editButton">

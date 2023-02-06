@@ -20,14 +20,14 @@ class design extends Model
     ];
 
     public function user(){
-        return $this->hasMany('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function image(){
-        return $this->hasMany('App\Models\image');
+        return $this->belongsTo('App\Models\image');
     }
 
     public function clothes(){
-        return $this->hasMany('App\Models\clothes');
+        return $this->belongsTo('App\Models\clothes');
     }
 }

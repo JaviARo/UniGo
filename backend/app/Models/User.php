@@ -32,10 +32,10 @@ class User extends Authenticatable
     ];
 
     public function images(){
-        return $this->belongsTo('App\Models\image');
+        return $this->hasMany('App\Models\image');
     }
 
     public function design(){
-        return $this->belongsTo('App\Models\design');
+        return $this->hasMany('App\Models\design');
     }
 }

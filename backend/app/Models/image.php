@@ -15,10 +15,10 @@ class image extends Model
     ];
 
     public function users(){
-        return $this->hasMany('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function designs(){
-        return $this->belongsTo('App\Models\design');
+        return $this->hasMany('App\Models\design');
     }
 }
