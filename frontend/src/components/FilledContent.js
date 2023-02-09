@@ -29,14 +29,14 @@ function FilledContent() {
     getThisCloth();
     if (imageId != null) {
       getImage();
-      // getImgStyles();
+      getImgStyles();
       setImage_id(imageId);
       setPosition();
       setSize();
     }
 
     setClothes_id(clothId);
-    
+
     setUser_id(userId);
     setFavourite("false");
   }, []);
@@ -63,14 +63,16 @@ function FilledContent() {
     });
   };
 
-  // const getImgStyles = () => {
-  //   const imgImg = document.querySelector('#imageImg')
-  //   const style = getComputedStyle(imgImg);
-  //   const h = style.getPropertyValue(style[144]);
-  //   console.log(h);
-  //   console.log(style[159]);
-  //   console.log(style[278]);
-  // };
+  const getImgStyles = () => {
+    const imgImg = document.querySelector('#imageImg')
+    const style = getComputedStyle(imgImg);
+    const h = style.getPropertyValue(style[144]);
+    const l = style.getPropertyValue(style[160]);
+    const t = style.getPropertyValue(style[279]);
+    console.log(h);
+    console.log(l);
+    console.log(t);
+  };
 
   const getThisCloth = async () => {
     const response = await axios.get(`${endpoint}/cloth/${clothId}`);
@@ -81,14 +83,6 @@ function FilledContent() {
     const response = await axios.get(`${endpoint}/image/${imageId}`);
     setImage(response.data);
   };
-
-  function showImage() {
-    if(imageId != null) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   return (
     <div id="filledContentHeight">
@@ -107,18 +101,49 @@ function FilledContent() {
             src={"http://localhost:8000/" + cloth.img}
             alt=""
           />
-          {showImage===true ? (
-          <img
-          id="imageImg"
-          src={"http://localhost:8000/" + image.img}
-          alt=""
-        />
+          {imageId != null ? (
+            <img
+              id="imageImg"
+              src={"http://localhost:8000/" + image.img}
+              alt=""
+            />
           ) : null}
         </div>
         <div id="editButtons">
           <Link to={`/images/?cloth_id=` + clothId} className="editButton">
             <p>Seleccionar archivo</p>
           </Link>
+          <form>
+            <div id="formContainer">
+              <div className="designFormControl">
+                <label htmlFor="height">Tamaño</label>
+                <input
+                  type="number"
+                  name="height"
+                  min="10"
+                  max="30"
+                />
+              </div>
+              <div className="designFormControl">
+                <label htmlFor="x-pos">Eje x</label>
+                <input
+                  type="number"
+                  name="x-pos"
+                  min="0"
+                  max="100"
+                />
+              </div>
+              <div className="designFormControl">
+                <label htmlFor="y-pos">Eje y</label>
+                <input
+                  type="number"
+                  name="y-pos"
+                  min="10"
+                  max="100"
+                />
+              </div>
+            </div>
+          </form>
           <Link to="/designs" className="editButton">
             <p>Guardar cambios</p>
           </Link>

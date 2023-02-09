@@ -71,7 +71,7 @@ function ImagesComponent() {
               <a href={`/create/?cloth_id=` + clothId + `&image_id=` + image.id}>
                 <div className="canvas">
                   <div className="clothesBackground">
-                    <img id="imageOnClothes" src={"http://localhost:8000/" + image.img} alt="" />
+                    <img className="imageOnClothes" src={"http://localhost:8000/" + image.img} alt="" />
                   </div>
                   <p className="clothesName">{image.name}</p>
                 </div>
