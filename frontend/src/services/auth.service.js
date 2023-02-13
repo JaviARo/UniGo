@@ -33,6 +33,7 @@ const login = (username, password) => {
 
 const logout = () => {
   localStorage.removeItem("user");
+  localStorage.removeItem("token");
 };
 
 const getCurrentUser = () => {
@@ -45,12 +46,19 @@ const userId = () => {
   return user.data.id;
 } 
 
+const getToken = () => {
+  return localStorage.getItem("token");
+}
+
 const AuthService = {
   register,
   login,
   logout,
   getCurrentUser,
   userId,
+  getToken,
 };
+
+
 
 export default AuthService;

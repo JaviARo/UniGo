@@ -4,12 +4,14 @@ import { isRouteErrorResponse, Link } from "react-router-dom";
 import { DesignComponent, CreateDesign } from "./DesignComponent";
 import "./designContent.css";
 import AuthService from "../services/auth.service";
+import authHeader from "../services/auth-header";
 
 const endpoint = "http://localhost:8000/api";
 
 function DesignContent() {
   const userId = AuthService.userId();
   const [designs, setDesigns] = useState([]);
+  
 
   useEffect(() => {
     // getAllDesigns()
@@ -17,22 +19,38 @@ function DesignContent() {
   }, []);
 
   const getAllDesigns = async () => {
-    const response = await axios.get(`${endpoint}/designs`);
+    const response = await axios({
+      url: `${endpoint}/designs`,
+      method: "GET",
+      headers: authHeader(),
+    })
     setDesigns(response.data);
   };
 
   const getDesignsByUser = async () => {
-    const response = await axios.get(`${endpoint}/designs/user/${userId}`);
+    const response = await axios({
+      url: `${endpoint}/designs/user/${userId}`,
+      method: "GET",
+      headers: authHeader(),
+    })
     setDesigns(response.data);
   };
 
   async function getCountByUser() {
-    const response = await axios.get(`${endpoint}/designs/count/${userId}`);
+    const response = await axios({
+      url: `${endpoint}/designs/count/${userId}`,
+      method: "GET",
+      headers: authHeader(),
+    })
     return response;
   }
 
   const deleteDesign = async (id) => {
-    await axios.delete(`${endpoint}/design/${id}`);
+    await axios({
+      url: `${endpoint}/design/${id}`,
+      method: "DELETE",
+      headers: authHeader(),
+    })
     getAllDesigns();
   };
 
