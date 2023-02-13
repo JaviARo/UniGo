@@ -127,7 +127,7 @@ const Login = () => {
                     {loading && (
                       <span className="spinner-border spinner-border-sm"></span>
                     )}
-                    <span>Login</span>
+                    <span>Iniciar sesión</span>
                   </button>
                 </div>
               </div>

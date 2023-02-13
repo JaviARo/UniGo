@@ -1,25 +1,36 @@
 import { Header, Footer } from "../components/Control";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./config.css";
+import AuthService from "../services/auth.service";
 
 function Config() {
+  const navigate = useNavigate();
+  const navigateToUser = () => {
+    navigate('/user')
+  }
+
+  const logout = () => {
+    AuthService.logout();
+    navigate('/')
+  }
   return (
     <>
       <Header />
       <div id="configContentHeight">
         <div id="configButtons">
-          <Link to="/user" className="configButton">
+          <button className="configButton" onClick={navigateToUser}>
             <p>Ver datos de usuario</p>
-          </Link>
-          <Link to="/designs" className="configButton">
+          </button>
+          <button className="configButton">
             <p>Contacto</p>
-          </Link>
-          <Link to="/designs" className="configButton">
+          </button>
+          <button to="/designs" className="configButton">
             <p>Modo oscuro</p>
-          </Link>
-          <Link to="/" className="configButton">
+          </button>
+          <button className="configButton" onClick={logout}>
             <p id="configButtonSesion">Cerrar sesión</p>
-          </Link>
+          </button>
         </div>
       </div>
       <Footer />

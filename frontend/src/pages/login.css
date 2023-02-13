@@ -73,3 +73,7 @@ input[type="submit"] {
   font-size: large;
   margin-top: 5vh;
 }
+
+#submitButton {
+  text-decoration: underline;
+}

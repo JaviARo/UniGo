@@ -4,6 +4,12 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
+// header('Access-Control-Allow-Origin: *'); 
+// header("Access-Control-Allow-Credentials: true");
+// header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+
+// header('Access-Control-Max-Age: 1000');
+// header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +21,23 @@ define('LARAVEL_START', microtime(true));
 | instead of starting the framework, which could cause an exception.
 |
 */
+
+// $allowedOrigins = array(
+//     'http://127.0.0.1:8000',
+//     'http://localhost:8000'
+// );
+// if(isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != '') {
+//     foreach ($allowedOrigins as $allowedOrigin) {
+//         if(preg_match('#' . $allowedOrigin . '#', $_SERVER['HTTP_ORIGIN'])) {
+//             header('Access-Control-Allow-Origin:', $_SERVER['HTTP_ORIGIN']);
+//             header('Access-Control-Allow-Credentials: true');
+//             header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
+//             header('Access-Control-Allow-Origin-Max-Age: 1728000');
+//             header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, Application');
+//         }
+//         break;
+//     }
+// }
 
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
