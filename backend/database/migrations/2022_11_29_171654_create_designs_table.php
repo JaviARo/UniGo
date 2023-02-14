@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('designs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('img');
             $table->string('position');
             $table->integer('size');
             $table->boolean('favourite');

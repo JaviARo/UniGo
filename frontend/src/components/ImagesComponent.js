@@ -3,6 +3,7 @@ import axios from "axios";
 import { Col, Row } from "antd";
 import "./clothesComponent.css";
 import AuthService from "../services/auth.service";
+import authHeader from "../services/auth-header";
 
 const endpoint = "http://localhost:8000/api";
 
@@ -23,7 +24,11 @@ function ImagesComponent() {
   }, []);
 
   const getImagesByUser = async () => {
-    const response = await axios.get(`${endpoint}/images/user/${userId}`);
+    const response = await axios({
+      url: `${endpoint}/images/user/${userId}`,
+      method: "GET",
+      headers: authHeader(),
+    });
     setImages(response.data);
   };
 
@@ -48,10 +53,11 @@ function ImagesComponent() {
     axios({
       url: `${endpoint}/image`,
       method: "POST",
+      headers: authHeader(),
       data: formdata
     })
 
-    window.location.href = window.location.href;
+    // window.location.href = window.location.href;
   };
 
   const haveImage = () => {
