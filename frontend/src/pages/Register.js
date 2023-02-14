@@ -79,11 +79,9 @@ const Register = () => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(dni, name, username, email, type, password, confirm_password).then(
         (response) => {
-          console.log(response);
           setMessage(response.data.message);
-          localStorage.setItem("token", response.data.data.token);
-          console.log(response.data.data.token);
           setSuccessful(true);
+          navigate("/designs");
         },
         (error) => {
           const resMessage =
@@ -181,7 +179,7 @@ const Register = () => {
                     <Input
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      type="text"
+                      type="password"
                       name="password"
                       // onClick={changeLabel}
                       className="form-control"
@@ -196,7 +194,7 @@ const Register = () => {
                     <Input
                       value={confirm_password}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      type="text"
+                      type="password"
                       name="password"
                       // onClick={changeLabel}
                       className="form-control"

@@ -28,6 +28,7 @@ function UserContent() {
       method: "GET",
       headers: authHeader(),
     })
+    console.log(response);
     setUser(response.data);
   };
 

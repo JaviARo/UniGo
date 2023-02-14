@@ -11,10 +11,8 @@ const endpoint = "http://localhost:8000/api";
 function DesignContent() {
   const userId = AuthService.userId();
   const [designs, setDesigns] = useState([]);
-  
 
   useEffect(() => {
-    // getAllDesigns()
     getDesignsByUser();
   }, []);
 
@@ -64,13 +62,14 @@ function DesignContent() {
 
   return (
     <div id="designContentHeight">
-      {haveDesigns===true ? (
+      {haveDesigns()===true ? (
         <div id="designContentBackground">
           {designs.map((design) => (
             <DesignComponent
               key={design.id}
               id={design.id}
               name={design.name}
+              clothes_id={design.clothes_id}
             />
           ))}
           <CreateDesign />

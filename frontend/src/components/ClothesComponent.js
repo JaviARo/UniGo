@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Col, Row } from "antd";
 import "./clothesComponent.css";
+import authHeader from "../services/auth-header";
 
 const endpoint = "http://localhost:8000/api";
 
@@ -13,7 +14,11 @@ function ClothesComponent() {
   }, []);
 
   const getAllClothes = async () => {
-    const response = await axios.get(`${endpoint}/clothes`);
+    const response = await axios({
+      url: `${endpoint}/clothes`,
+      method: "GET",
+      headers: authHeader(),
+    })
     setClothes(response.data);
   };
 

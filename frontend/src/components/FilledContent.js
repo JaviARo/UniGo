@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import html2canvas from "html2canvas";
 import "./filledContent.css";
 import AuthService from "../services/auth.service";
+import authHeader from "../services/auth-header";
 
 const endpoint = "http://localhost:8000/api";
 
@@ -14,7 +14,6 @@ function FilledContent() {
   const [image, setImage] = useState([]);
 
   const [name, setName] = useState("");
-  const [img, setImg] = useState("");
   const [position, setPosition] = useState("");
   const [size, setSize] = useState("");
   const [favourite, setFavourite] = useState("");
@@ -40,7 +39,7 @@ function FilledContent() {
     setClothes_id(clothId);
 
     setUser_id(userId);
-    setFavourite("false");
+    setFavourite(false);
   }, []);
 
   const postDesign = (
@@ -53,19 +52,21 @@ function FilledContent() {
     // image_id,
     // clothes_id
   ) => {
-    createImage();
-    console.log(img);
-    return axios.post(endpoint + "/design", {
-      name,
-      img,
-      position,
-      size,
-      favourite,
-      user_id,
-      image_id,
-      clothes_id,
+    axios({
+      url: `${endpoint}/design`,
+      method: "POST",
+      headers: authHeader(),
+      data: {
+        name,
+        position,
+        size,
+        favourite,
+        user_id,
+        image_id,
+        clothes_id
+      }
     });
-    // navigate("./designs");
+    navigate("/designs");
   };
 
   // const getImgStyles = () => {
@@ -80,12 +81,20 @@ function FilledContent() {
   // };
 
   const getThisCloth = async () => {
-    const response = await axios.get(`${endpoint}/cloth/${clothId}`);
+    const response = await axios({
+      url: `${endpoint}/cloth/${clothId}`,
+      method: "GET",
+      headers: authHeader(),
+    });
     setCloth(response.data);
   };
 
   const getImage = async () => {
-    const response = await axios.get(`${endpoint}/image/${imageId}`);
+    const response = await axios({
+      url: `${endpoint}/image/${imageId}`,
+      method: "GET",
+      headers: authHeader(),
+    });
     setImage(response.data);
   };
 
@@ -106,19 +115,19 @@ function FilledContent() {
     setPosition("x=" + x + "-y=" + y);
   }
 
-  const createImage = () => {
-    var i = document.querySelector("#designCanvas");
-    html2canvas(i, {
-      allowTaint: true,
-      proxy: "http://localhost:8000/public",
-      logging: true,
-      onrendered: function(canvas) {
-        const dataUrl = canvas.toDataURL();
-        console.log(dataUrl);
-        // setImg(dataUrl);
-        // console.log(img)
-      }
-    })
+  // const createImage = () => {
+  //   var i = document.querySelector("#designCanvas");
+  //   html2canvas(i, {
+  //     allowTaint: true,
+  //     proxy: "http://localhost:8000/public",
+  //     logging: true,
+  //     onrendered: function(canvas) {
+  //       const dataUrl = canvas.toDataURL();
+  //       console.log(dataUrl);
+  //       // setImg(dataUrl);
+  //       // console.log(img)
+  //     }
+  //   })
   
     // .then(canvas => {
     //   const dataUrl = canvas.toDataURL();
@@ -138,7 +147,7 @@ function FilledContent() {
     //   .catch(function (error) {
     //     console.error("oops, something went wrong!", error);
     //   });
-  }
+  // }
 
   return (
     <div id="filledContentHeight">
@@ -213,8 +222,6 @@ function FilledContent() {
             Guardar cambios
             </button>
           
-          {/* <button className="editButton">Seleccionar archivo</button>
-          <button className="editButton">Guardar cambios</button> */}
         </div>
       </div>
     </div>
