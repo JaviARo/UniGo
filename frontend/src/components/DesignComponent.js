@@ -10,21 +10,20 @@ const endpoint = "http://localhost:8000/api";
 export function DesignComponent(props) {
 
   const getThisCloth = (clothId) => {
-    // const response = await axios({
-    //   url: `${endpoint}/cloth/${clothId}`,
-    //   method: "GET",
-    //   headers: authHeader(),
-    // });
-    //   response.then(data => console.log(data.img));
-
     var request = require('sync-request');
     var res = request('GET', `${endpoint}/cloth/${clothId}`, {
       headers: authHeader()
     });
-
-    console.log(res.body.split("\"")[9]);
-    return "http://localhost:8000/"+res.body.split("\"")[9];
+    return res.body.split("\"");
   };
+
+  const getThisClothImg = (clothId) => {
+    return "http://localhost:8000/"+getThisCloth(clothId)[9];
+  }
+
+  const getThisClothName = (clothId) => {
+    return getThisCloth(clothId)[5];
+  }
 
   return (
     <a href={`/edit/${props.id}`}>
@@ -33,14 +32,19 @@ export function DesignComponent(props) {
           <Col className="rowDesign" span={1}></Col>
           <Col className="rowDesign" span={10}>
             <div id="imgBackground">
-              <img src={getThisCloth(props.clothes_id)}/>
+              <img src={getThisClothImg(props.clothes_id)}/>
             </div>
           </Col>
           <Col className="rowDesign" span={1}></Col>
           <Col className="rowDesign" span={9}>
             <div id="componentText">
               <div id="title">{props.name}</div>
-              <div id="subtitle">Subtítulo</div>
+              <div id="subtitle">{getThisClothName(props.clothes_id)}</div>
+            </div>
+          </Col>
+          <Col className="rowDesign" span={3}>
+            <div id="heartContainer">
+              <img src="img/heart.png"/>
             </div>
           </Col>
         </Row>
