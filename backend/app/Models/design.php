@@ -10,7 +10,6 @@ class design extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'img', 
         'position', 
         'size', 
         'favourite', 

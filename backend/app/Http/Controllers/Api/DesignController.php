@@ -27,15 +27,6 @@ class DesignController extends Controller
     public function store(Request $request)
     {
         $design = new design();
-
-        if( $request->hasFile('img') ) {
-            $file = $request->file('img');
-            $destinationPath = 'images/designTable/';
-            $filename = time() . '-' . $file->getClientOriginalName();
-            $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
-            $design->img = $destinationPath . $filename;
-        }
-
         $design->name = $request->name;
         $design->position = $request->position;
         $design->size = $request->size;
@@ -63,7 +54,6 @@ class DesignController extends Controller
     {
         $design = design::findOrFail($request->id);
         $design->name = $request->name;
-        $design->img = $request->img;
         $design->position = $request->position;
         $design->size = $request->size;
         $design->favourite = $request->favourite;
