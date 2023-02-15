@@ -22,12 +22,6 @@ function Config() {
           <button className="configButton" onClick={navigateToUser}>
             <p>Ver datos de usuario</p>
           </button>
-          <button className="configButton">
-            <p>Contacto</p>
-          </button>
-          <button to="/designs" className="configButton">
-            <p>Modo oscuro</p>
-          </button>
           <button className="configButton" onClick={logout}>
             <p id="configButtonSesion">Cerrar sesión</p>
           </button>

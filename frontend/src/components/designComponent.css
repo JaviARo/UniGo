@@ -12,10 +12,17 @@
 }
 
 #imgBackground {
+  display: flex;
   background-color: #D9D9D9;
   height: 75%;
   width: 90%;
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+#imgBackground img {
+  height: 75%;
 }
 
 #componentText {
@@ -27,4 +34,8 @@
 #title {
   font-weight: 600;
   margin-bottom: 1vh;
+}
+
+#heartContainer img {
+  width: 2em;
 }

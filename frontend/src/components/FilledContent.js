@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import html2canvas from "html2canvas";
 import "./filledContent.css";
 import AuthService from "../services/auth.service";
 import authHeader from "../services/auth-header";
