@@ -7,7 +7,7 @@ function EditDesign() {
     <>
       <div id="editDesign">
         <Header />
-          <FilledContent />
+          <FilledContent edit={true}/>
         <Footer />
       </div>
     </>

@@ -6,7 +6,7 @@ function Create() {
     <>
       <div id="createPage">
         <Header />
-        <FilledContent />
+        <FilledContent edit={false}/>
         <Footer />
       </div>
     </>

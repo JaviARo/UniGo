@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./filledContent.css";
 import AuthService from "../services/auth.service";
@@ -7,9 +7,10 @@ import authHeader from "../services/auth-header";
 
 const endpoint = "http://localhost:8000/api";
 
-function FilledContent() {
+function FilledContent(edit) {
   const navigate = useNavigate();
   const userId = AuthService.userId();
+  const [design, setDesign] = useState([]);
   const [cloth, setCloth] = useState([]);
   const [image, setImage] = useState([]);
 
@@ -23,14 +24,24 @@ function FilledContent() {
 
   const querystring = window.location.search;
   let params = new URLSearchParams(querystring);
-  const clothId = params.get("cloth_id");
-  const imageId = params.get("image_id");
+  const [clothId, setClothId] = useState("");
+  const [imageId, setImageId] = useState("");
+  
+  const {id} = useParams();
 
   useEffect(() => {
+    if(edit) {
+      getThisDesign();
+      setClothId(design.clothes_id);
+      console.log(design.clothes_id);
+      setImageId(design.image_id);
+    } else {
+      setClothId(params.get("cloth_id"));
+      setImageId(params.get("image_id"));
+    }
     getThisCloth();
     if (imageId != null) {
       getImage();
-      // getImgStyles();
       setImage_id(imageId);
       setPosition();
       setSize();
@@ -42,16 +53,7 @@ function FilledContent() {
     setFavourite(false);
   }, []);
 
-  const postDesign = (
-    // name,
-    // img,
-    // position,
-    // size,
-    // favourite,
-    // user_id,
-    // image_id,
-    // clothes_id
-  ) => {
+  const postDesign = () => {
     axios({
       url: `${endpoint}/design`,
       method: "POST",
@@ -69,18 +71,18 @@ function FilledContent() {
     navigate("/designs");
   };
 
-  // const getImgStyles = () => {
-  //   const imgImg = document.querySelector('#imageImg')
-  //   const style = getComputedStyle(imgImg);
-  //   const h = style.getPropertyValue(style[144]);
-  //   const l = style.getPropertyValue(style[160]);
-  //   const t = style.getPropertyValue(style[279]);
-  //   console.log(h);
-  //   console.log(l);
-  //   console.log(t);
-  // };
+  const getThisDesign = async () => {
+    const response = await axios({
+      url: `${endpoint}/design/${id}`,
+      method: "GET",
+      headers: authHeader(),
+    });
+    console.log(response.data);
+    setDesign(response.data);
+  };
 
   const getThisCloth = async () => {
+    // console.log(clothId);
     const response = await axios({
       url: `${endpoint}/cloth/${clothId}`,
       method: "GET",
@@ -96,6 +98,22 @@ function FilledContent() {
       headers: authHeader(),
     });
     setImage(response.data);
+  };
+
+  const getThisClothImg = (clothId) => {
+    var request = require('sync-request');
+    var res = request('GET', `${endpoint}/cloth/${clothId}`, {
+      headers: authHeader()
+    });
+    return "http://localhost:8000/"+res.body.split("\"")[9];
+  };
+
+  const getThisImageImg = (clothId) => {
+    var request = require('sync-request');
+    var res = request('GET', `${endpoint}/image/${imageId}`, {
+      headers: authHeader()
+    });
+    return "http://localhost:8000/"+res.body.split("\"")[9];
   };
 
   const imageSize = () => {
@@ -159,8 +177,7 @@ function FilledContent() {
           id="titleInput"
           name="titleInput"
           placeholder="Título"
-        ></input>
-        {/* <h2 id="designTitle">Título</h2> */}
+        />
         <div id="designCanvas">
           <img
             id="clothImg"
@@ -216,12 +233,10 @@ function FilledContent() {
                 />
               </div>
             </div>
-            
           </form>
           <button className="editButton" onClick={postDesign}>
             Guardar cambios
-            </button>
-          
+          </button>
         </div>
       </div>
     </div>
