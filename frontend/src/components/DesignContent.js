@@ -11,9 +11,14 @@ const endpoint = "http://localhost:8000/api";
 function DesignContent() {
   const userId = AuthService.userId();
   const [designs, setDesigns] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     getDesignsByUser();
+    const count = getCountByUser();
+
+    haveDesigns(count);
+
   }, []);
 
   const getAllDesigns = async () => {
@@ -34,13 +39,12 @@ function DesignContent() {
     setDesigns(response.data);
   };
 
-  async function getCountByUser() {
-    const response = await axios({
-      url: `${endpoint}/designs/count/${userId}`,
-      method: "GET",
-      headers: authHeader(),
-    })
-    return response;
+  const getCountByUser= () => {
+    var request = require('sync-request');
+    var res = request('GET', `${endpoint}/designs/count/${userId}`, {
+      headers: authHeader()
+    });
+    return(res.body);
   }
 
   const deleteDesign = async (id) => {
@@ -52,17 +56,16 @@ function DesignContent() {
     getAllDesigns();
   };
 
-  const haveDesigns = () => {
-    if (getCountByUser() === 0) {
-      return false;
-    } else {
-      return true;
+  const haveDesigns = (count) => {
+    if (count > 0) {
+      setShow(true);
     }
+    console.log(count);
   };
 
   return (
     <div id="designContentHeight">
-      {haveDesigns()===true ? (
+      {show ? (
         <div id="designContentBackground">
           {designs.map((design) => (
             <DesignComponent
@@ -70,6 +73,7 @@ function DesignContent() {
               id={design.id}
               name={design.name}
               clothes_id={design.clothes_id}
+              favourite={design.favourite}
             />
           ))}
           <CreateDesign />
