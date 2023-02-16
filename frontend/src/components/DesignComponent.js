@@ -61,7 +61,7 @@ export function DesignComponent(props) {
       method: "PUT",
       headers: authHeader(),
       data: fd,
-      processData: false
+      // processData: false
     })
   };
 
