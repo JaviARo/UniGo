@@ -47,15 +47,6 @@ function DesignContent() {
     return(res.body);
   }
 
-  const deleteDesign = async (id) => {
-    await axios({
-      url: `${endpoint}/design/${id}`,
-      method: "DELETE",
-      headers: authHeader(),
-    })
-    getAllDesigns();
-  };
-
   const haveDesigns = (count) => {
     if (count > 0) {
       setShow(true);

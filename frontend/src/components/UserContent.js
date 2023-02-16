@@ -76,7 +76,6 @@ function UserContent() {
           </div>
           <div id="userButtons">
             <button className="userButton" onClick={changeUserContent}>Editar perfil</button>
-            <button className="userButton">Cambiar contraseña</button>
             <button className="userButton" onClick={navigateToConfig}>Volver</button>
           </div>
         </div>

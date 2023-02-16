@@ -7,7 +7,9 @@ export function Header() {
     <div id="header">
       <Row align="middle">
         <Col className="row" span={6}>
-          <img className="icon" src="/img/info.png" alt="" />
+          <a href="http://localhost:3000/helps/AyudaUnigo.html">
+            <img className="icon" src="/img/info.png" alt="" />
+          </a>
         </Col>
         <Col className="row" span={12}></Col>
         <Col className="row" span={6}>

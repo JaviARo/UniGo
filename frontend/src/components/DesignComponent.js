@@ -28,6 +28,17 @@ export function DesignComponent(props) {
     return getThisCloth(clothId)[5];
   }
 
+  const deleteDesign = async (id) => {
+    if (window.confirm('¿Quieres borrar el diseño?')) {
+      await axios({
+        url: `${endpoint}/design/${id}`,
+        method: "DELETE",
+        headers: authHeader(),
+      })
+      window.location.reload();
+    }
+  };
+
   const setFavourite = () => {
     if(props.favourite) {
       f = false;
@@ -81,7 +92,7 @@ export function DesignComponent(props) {
               ) : (
                 <img src="img/heart.png" onClick={setFavourite}/>
               )}
-              <img src="img/delete.png"/>
+              <img src="img/delete.png" onClick={() => deleteDesign(props.id)}/>
             </div>
           </Col>
         </Row>
