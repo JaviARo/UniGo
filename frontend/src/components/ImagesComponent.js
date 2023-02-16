@@ -33,14 +33,6 @@ function ImagesComponent() {
   };
 
   const storeImage = (e) => {
-    // e.preventDefault()
-    // console.log(document.getElementById("uploadImage").files[0]);
-    // await axios.post(`${endpoint}/image`, {
-    //   name: document.getElementById("uploadImage").files[0].name,
-    //   img: document.getElementById("uploadImage").files[0],
-    //   user_id: user_id
-    // })
-    // window.location.href = window.location.href;
     let file = document.getElementById("uploadImage").files[0]
     let formdata = new FormData()
 

@@ -1,0 +1,60 @@
+#labelContainer {
+  text-align: left;
+}
+
+#label {
+  color: rgba(60, 55, 68, 1);
+  width: fit-content;
+}
+
+input[type=text] {
+  border: none;
+  border-bottom: 1px solid rgba(60, 55, 68, 1);
+  background-color: rgba(206, 181, 167, 0);
+  width: 97%;
+  font-family: 'Raleway', sans-serif;
+  color:rgba(60, 55, 68, 1);
+}
+
+input[type=password] {
+  border: none;
+  border-bottom: 1px solid rgba(60, 55, 68, 1);
+  background-color: rgba(206, 181, 167, 0);
+  width: 97%;
+  font-family: 'Raleway', sans-serif;
+  color:rgba(60, 55, 68, 1);
+}
+
+#labelText {
+  position: relative;
+  top: 4vh;
+}
+
+.labelTextSelected {
+  position: relative;
+  bottom: 5vh;
+  color: rgba(60, 55, 68, 1);
+  font-size: small;
+}
+
+.selected {
+  color: rgba(60, 55, 68, 1);
+  font-size: small;
+}
+
+#buttonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#submitButton {
+  color:rgba(60, 55, 68, 1);
+  background-color: transparent;
+  font-family: 'Raleway', sans-serif;
+  font-size: large;
+  border: transparent;
+}
+
+.alert {
+  color: rgba(192, 19, 19, 1);
+}

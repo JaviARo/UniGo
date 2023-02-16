@@ -1,0 +1,18 @@
+#header {
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #3C3744;
+  color: D9D9D9;
+}
+
+#header img {
+  height: 80%;
+}
+
+#header p {
+  color: #D9D9D9;
+  text-decoration: none;
+  cursor: pointer;
+}

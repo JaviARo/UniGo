@@ -34,11 +34,11 @@
   margin-right: 14px;
   border-radius: 5px;
   margin-top: 14px;
+  overflow: hidden;
 }
 
 .imageOnClothes {
-  width: 80%;
-  height: 80%;
+  height: 100%;
   border-radius: 5px;
 }
 

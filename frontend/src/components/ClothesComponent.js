@@ -25,15 +25,6 @@ function ClothesComponent() {
   return (
     <div id="clothesContentHeight">
       <div id="clothesContentBackground">
-        {/* <Row justify="center">
-          <Col span={9}>
-            <div class="canvas"></div>
-          </Col>
-          <Col span={1}></Col>
-          <Col span={9}>
-            <div class="canvas"></div>
-          </Col>
-        </Row> */}
         <Row justify="start" gutter={[16, 16]}>
           {clothes.map((cloth) => (
             <Col span={12}>

@@ -81,6 +81,7 @@
 
 #editButtons form{
   top: 0%;
+  height: max-content;
 }
 
 .editButton {

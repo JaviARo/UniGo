@@ -37,10 +37,10 @@ function Home() {
                 Registrarse
               </a>
             </div>
-            <div id="imgContainer">
+            {/* <div id="imgContainer">
               <img className="imgButton" src="img/google.png" alt="" />
               <img className="imgButton" src="img/facebook.png" alt="" />
-            </div>
+            </div> */}
           </div>
         ) : null}
       </div>

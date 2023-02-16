@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import authHeader from "../services/auth-header";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import "./designComponent.css";
 
 const endpoint = "http://localhost:8000/api";
 
 export function DesignComponent(props) {
-  const f = props.favourite
+  var f = props.favourite;
+  const navigate = useNavigate();
 
   const getThisCloth = (clothId) => {
     var request = require('sync-request');
@@ -26,62 +28,68 @@ export function DesignComponent(props) {
     return getThisCloth(clothId)[5];
   }
 
-  const setFavourite = async () => {
+  const setFavourite = () => {
     if(props.favourite) {
       f = false;
     } else {
       f = true;
     }
 
-    let formdata = new FormData()
-    formdata.append('name', props.name)
-    formdata.append('position', props.position)
-    formdata.append('size', props.size)
-    formdata.append('favourite', f)
-    formdata.append('user_id', props.user_id)
-    formdata.append('image_id', props.image_id)
-    formdata.append('clothes_id', props.clothes_id)
+    let fd = new FormData()
+    fd.append('name', props.name)
+    fd.append('position', props.position)
+    fd.append('size', props.size)
+    fd.append('favourite', f)
+    fd.append('user_id', props.user_id)
+    fd.append('image_id', props.image_id)
+    fd.append('clothes_id', props.clothes_id)
     
-    await axios({
+    console.log(fd);
+    axios({
       url: `${endpoint}/design/${props.id}`,
       method: "PUT",
       headers: authHeader(),
-      data: formdata
+      data: fd,
+      processData: false
     })
   };
 
+  const navigateToEdit = () => {
+    navigate(`/edit/${props.id}`)
+  }
+
   return (
-    <a href={`/edit/${props.id}`}>
       <div id="component">
         <Row align="middle">
-          <Col className="rowDesign" span={1}></Col>
-          <Col className="rowDesign" span={10}>
+          <Col className="rowDesign" span={1} onClick={navigateToEdit}></Col>
+          <Col className="rowDesign" span={10} onClick={navigateToEdit}>
             <div id="imgBackground">
-              <img src={getThisClothImg(props.clothes_id)}/>
+              <img className="designComponentImg" src={getThisClothImg(props.clothes_id)}/>
             </div>
           </Col>
-          <Col className="rowDesign" span={1}></Col>
-          <Col className="rowDesign" span={9}>
+          <Col className="rowDesign" span={1} onClick={navigateToEdit}></Col>
+          <Col className="rowDesign" span={9} onClick={navigateToEdit}>
             <div id="componentText">
               <div id="title">{props.name}</div>
               <div id="subtitle">{getThisClothName(props.clothes_id)}</div>
             </div>
           </Col>
           <Col className="rowDesign" span={3}>
-            <button id="heartContainer" onClick={setFavourite}>
+            <div id="heartContainer">
               {props.favourite ? (
-                <img src="img/heart_filled.png" />
+                <img src="img/heart_filled.png" onClick={setFavourite}/>
               ) : (
-                <img src="img/heart.png"/>
+                <img src="img/heart.png" onClick={setFavourite}/>
               )}
-            </button>
+              <img src="img/delete.png"/>
+            </div>
           </Col>
         </Row>
         {/* <div id="imgBackground"></div>
           <div id="title">Título</div>
           <div id="subtitle">Subtítulo</div> */}
       </div>
-    </a>
+    
   );
 }
 
@@ -93,7 +101,7 @@ export function CreateDesign() {
           <Col className="rowDesign" span={1}></Col>
           <Col className="rowDesign" span={10}>
             <div id="imgBackground">
-              <img src="/img/plus.png"/>
+              <img id="designPlus" src="/img/plus.png"/>
             </div>
           </Col>
           <Col className="rowDesign" span={1}></Col>

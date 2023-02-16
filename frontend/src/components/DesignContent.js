@@ -72,8 +72,12 @@ function DesignContent() {
               key={design.id}
               id={design.id}
               name={design.name}
-              clothes_id={design.clothes_id}
+              position={design.position}
+              size={design.size}
               favourite={design.favourite}
+              user_id={design.user_id}
+              image_id={design.image_id}
+              clothes_id={design.clothes_id}
             />
           ))}
           <CreateDesign />

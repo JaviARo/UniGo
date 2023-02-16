@@ -62,6 +62,7 @@ class DesignController extends Controller
         $design->user_id = $request->user_id;
 
         $design->save();
+        return $design;
     }
 
     public function destroy($id)

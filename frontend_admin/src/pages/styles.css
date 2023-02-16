@@ -1,0 +1,72 @@
+#adminBackground {
+  height: 90vh;
+  background-color: #CEB5A7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+}
+
+#adminBackground h1 {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  color: #3C3744;
+}
+
+#adminBackground table {
+  table-layout: fixed;
+  width: 90%;
+  border: 3px solid #3C3744;
+  border-collapse: collapse;
+}
+
+#adminBackground table tr {
+  height: 5vh;
+}
+
+
+#adminBackground table tr th {
+  background-color: #3C3744;
+  color: #DADADA;
+}
+
+#adminBackground table tr td {
+  background-color: #DADADA;
+  color: #3C3744;
+  border: 3px solid #3C3744;
+  overflow: hidden;
+}
+
+td img {
+  height: 10em;
+}
+
+#adminBackground button {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background-color: #3C3744;
+  color: #DADADA;
+  border: 0px;
+  height: 2.5em;
+  width: 15em;
+  cursor: pointer;
+}
+
+#adminForm {
+  display: flex;
+}
+
+#adminForm input {
+  height: 2.5em;
+  font-size: larger;
+  margin-bottom: 2em;
+}
+
+#adminForm button {
+  align-self: center;
+}
+
+.deleteImg {
+  height: 3em;
+  cursor: pointer;
+}

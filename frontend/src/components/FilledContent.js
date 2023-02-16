@@ -24,21 +24,18 @@ function FilledContent(edit) {
 
   const querystring = window.location.search;
   let params = new URLSearchParams(querystring);
-  const [clothId, setClothId] = useState("");
-  const [imageId, setImageId] = useState("");
-  
-  const {id} = useParams();
+  const clothId = params.get("cloth_id");
+  const imageId = params.get("image_id");
+
+  const { id } = useParams();
 
   useEffect(() => {
-    if(edit) {
-      getThisDesign();
-      setClothId(design.clothes_id);
-      console.log(design.clothes_id);
-      setImageId(design.image_id);
-    } else {
-      setClothId(params.get("cloth_id"));
-      setImageId(params.get("image_id"));
-    }
+    // if (edit) { // Si se está editando
+    //   getThisDesign();
+    //   // getThisImage();
+
+    // } else { // Si se está creando
+    // }
     getThisCloth();
     if (imageId != null) {
       getImage();
@@ -52,6 +49,13 @@ function FilledContent(edit) {
     setUser_id(userId);
     setFavourite(false);
   }, []);
+
+  // useEffect(() => {
+  //   console.log(design.clothes_id);
+  //   getThisImageImg();
+  //   getThisClothImg();
+  //   setName(design.name);
+  // }, [design]);
 
   const postDesign = () => {
     axios({
@@ -100,25 +104,26 @@ function FilledContent(edit) {
     setImage(response.data);
   };
 
-  const getThisClothImg = (clothId) => {
-    var request = require('sync-request');
-    var res = request('GET', `${endpoint}/cloth/${clothId}`, {
-      headers: authHeader()
+  const getThisImageImg = async () => {
+    const response = await axios({
+      url: `${endpoint}/image/${design.image_id}`,
+      method: "GET",
+      headers: authHeader(),
     });
-    return "http://localhost:8000/"+res.body.split("\"")[9];
+    setImage(response.data);
   };
 
-  const getThisImageImg = (clothId) => {
-    var request = require('sync-request');
-    var res = request('GET', `${endpoint}/image/${imageId}`, {
-      headers: authHeader()
+  const getThisClothImg = async () => {
+    const response = await axios({
+      url: `${endpoint}/cloth/${design.clothes_id}`,
+      method: "GET",
+      headers: authHeader(),
     });
-    return "http://localhost:8000/"+res.body.split("\"")[9];
+    setCloth(response.data);
   };
 
   const imageSize = () => {
     var h = document.getElementById("height").value;
-    console.log(h + "%");
     var element = document.getElementById("imageImg");
     element.style.height = h + "%";
     setSize(h);
@@ -130,115 +135,152 @@ function FilledContent(edit) {
     var element = document.getElementById("imageImg");
     element.style.left = x + "%";
     element.style.top = y + "%";
-    setPosition("x=" + x + "-y=" + y);
+    setPosition("\"x\":\"" + x + "\",\"y\":\"" + y+ "\"");
   }
-
-  // const createImage = () => {
-  //   var i = document.querySelector("#designCanvas");
-  //   html2canvas(i, {
-  //     allowTaint: true,
-  //     proxy: "http://localhost:8000/public",
-  //     logging: true,
-  //     onrendered: function(canvas) {
-  //       const dataUrl = canvas.toDataURL();
-  //       console.log(dataUrl);
-  //       // setImg(dataUrl);
-  //       // console.log(img)
-  //     }
-  //   })
-  
-    // .then(canvas => {
-    //   const dataUrl = canvas.toDataURL();
-    //   console.log(dataUrl);
-    //   setImg(dataUrl);
-    //   console.log(img)
-    // })
-    // domtoimage
-    //   .toPng(canvas, { cacheBust: true })
-    //   .then(function (dataUrl) {
-    //     var i = new Image();
-    //     i.crossOrigin = '*';
-    //     i.src = dataUrl;
-    //     console.log(i.src);
-    //     setImg(i.src);
-    //   })
-    //   .catch(function (error) {
-    //     console.error("oops, something went wrong!", error);
-    //   });
-  // }
 
   return (
     <div id="filledContentHeight">
-      <div id="filledContentBackground">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          id="titleInput"
-          name="titleInput"
-          placeholder="Título"
-        />
-        <div id="designCanvas">
-          <img
-            id="clothImg"
-            src={"http://localhost:8000/" + cloth.img}
-            alt=""
+      {/* {edit ? (
+        <div id="filledContentBackground">
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            id="titleInput"
+            name="titleInput"
+            placeholder={design.name}
           />
-          {imageId != null ? (
+          <div id="designCanvas">
+            <img
+              id="clothImg"
+              src={"http://localhost:8000/" + cloth.img}
+              alt=""
+            />
             <img
               id="imageImg"
               src={"http://localhost:8000/" + image.img}
               alt=""
             />
-          ) : null}
+          </div>
+          <div id="editButtons">
+            <Link to={`/images/?cloth_id=` + clothId} className="editButton">
+              <p>Seleccionar archivo</p>
+            </Link>
+            <form>
+              <div id="formContainer">
+                <div className="designFormControl">
+                  <label htmlFor="height">Tamaño</label>
+                  <input
+                    value={size}
+                    type="number"
+                    name="height"
+                    min="10"
+                    max="30"
+                    id="height"
+                    onChange={(e) => imageSize()}
+                  />
+                </div>
+                <div className="designFormControl">
+                  <label htmlFor="x-pos">Eje x</label>
+                  <input
+                    type="number"
+                    name="x-pos"
+                    min="0"
+                    max="100"
+                    id="x-pos"
+                    onChange={(e) => imagePosition()}
+                  />
+                </div>
+                <div className="designFormControl">
+                  <label htmlFor="y-pos">Eje y</label>
+                  <input
+                    type="number"
+                    name="y-pos"
+                    min="0"
+                    max="100"
+                    id="y-pos"
+                    onChange={(e) => imagePosition()}
+                  />
+                </div>
+              </div>
+            </form>
+            <button className="editButton" onClick={postDesign}>
+              Guardar cambios
+            </button>
+          </div>
         </div>
-        <div id="editButtons">
-          <Link to={`/images/?cloth_id=` + clothId} className="editButton">
-            <p>Seleccionar archivo</p>
-          </Link>
-          <form>
-            <div id="formContainer">
-              <div className="designFormControl">
-                <label htmlFor="height">Tamaño</label>
-                <input
-                  value={size}
-                  type="number"
-                  name="height"
-                  min="10"
-                  max="30"
-                  id="height"
-                  onChange={(e) => imageSize()}
-                />
+      ) : ( */}
+        <div id="filledContentBackground">
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            id="titleInput"
+            name="titleInput"
+            placeholder="Título"
+          />
+          <div id="designCanvas">
+            <img
+              id="clothImg"
+              src={"http://localhost:8000/" + cloth.img}
+              alt=""
+            />
+            {imageId != null ? (
+              <img
+                id="imageImg"
+                src={"http://localhost:8000/" + image.img}
+                alt=""
+              />
+            ) : null}
+          </div>
+          <div id="editButtons">
+            <Link to={`/images/?cloth_id=` + clothId} className="editButton">
+              <p>Seleccionar archivo</p>
+            </Link>
+            <form>
+              <div id="formContainer">
+                <div className="designFormControl">
+                  <label htmlFor="height">Tamaño</label>
+                  <input
+                    value={size}
+                    type="number"
+                    name="height"
+                    min="10"
+                    max="30"
+                    id="height"
+                    onChange={(e) => imageSize()}
+                  />
+                </div>
+                <div className="designFormControl">
+                  <label htmlFor="x-pos">Eje x</label>
+                  <input
+                    type="number"
+                    name="x-pos"
+                    min="0"
+                    max="100"
+                    id="x-pos"
+                    onChange={(e) => imagePosition()}
+                  />
+                </div>
+                <div className="designFormControl">
+                  <label htmlFor="y-pos">Eje y</label>
+                  <input
+                    type="number"
+                    name="y-pos"
+                    min="0"
+                    max="100"
+                    id="y-pos"
+                    onChange={(e) => imagePosition()}
+                  />
+                </div>
               </div>
-              <div className="designFormControl">
-                <label htmlFor="x-pos">Eje x</label>
-                <input
-                  type="number"
-                  name="x-pos"
-                  min="0"
-                  max="100"
-                  id="x-pos"
-                  onChange={(e) => imagePosition()}
-                />
-              </div>
-              <div className="designFormControl">
-                <label htmlFor="y-pos">Eje y</label>
-                <input
-                  type="number"
-                  name="y-pos"
-                  min="0"
-                  max="100"
-                  id="y-pos"
-                  onChange={(e) => imagePosition()}
-                />
-              </div>
-            </div>
-          </form>
-          <button className="editButton" onClick={postDesign}>
-            Guardar cambios
-          </button>
+            </form>
+            <button className="editButton" onClick={postDesign}>
+              Guardar cambios
+            </button>
+          </div>
         </div>
-      </div>
+      {/* )} */}
     </div>
   );
 }

@@ -19,9 +19,14 @@
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-#imgBackground img {
+.designComponentImg {
+  height: 100%;
+}
+
+#designPlus {
   height: 75%;
 }
 
