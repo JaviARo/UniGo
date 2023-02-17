@@ -20,14 +20,14 @@ import { haveDesigns } from '../components/DesignContent'
 describe('funciones de design content', () => {
   describe('s', () => {
     test('debe devolver un número', () => {
-      const result = getCountByUser;
+      const result = getCountByUser();
       expect(typeof result).toBe('integer');
     });
   });
 
   describe('p', () => {
     test('debe ser booleano', () => {
-      const result = haveDesigns;
+      const result = haveDesigns();
       expect(result).toBe('false');
     })
   })

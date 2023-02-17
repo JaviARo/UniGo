@@ -47,9 +47,11 @@ function ImagesComponent() {
       method: "POST",
       headers: authHeader(),
       data: formdata
+    }).then((res) => {
+      getImagesByUser();
     })
 
-    // window.location.href = window.location.href;
+    // window.location.reload();
   };
 
   const haveImage = () => {
