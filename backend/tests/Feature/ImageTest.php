@@ -13,30 +13,31 @@ class ImageTest extends TestCase
 {
     public function test_userMustBeenLoggedToPostImage()
     {
+        // El usuario debe estar loggeado para postear
+        // una imagen
         Sanctum::actingAs(
             User::factory()->create()
         );
 
         $image = image::factory()->create();
-        
-
-        // Este test comprueba que falle la función post
-        // cuando no se le pasan dos campos requeridos
-        $response = $this->json('POST', 'api/image', 
-            ['name' => $image->name],
-            ['user_id' => $image->user_id],
-            ['img' => $image->img]);
-        
+        $response = $this->json('POST', 'api/image', [
+            'name' => $image->name,
+            'img' => $image->img,
+            'user_id' => $image->user_id, 
+        ]);
         $response->assertStatus(200);
     }
 
     public function test_userCantPostImageIfNotLogged()
     {
-        $response = $this->json('POST', 'api/image', 
-            ['name' => 'Ejemplo'],
-            ['user_id' => 0],
-            ['img' => 'Ejemplo']);
-        
+        // No se puede subir una imagen si el
+        // usuario no está loggeado
+        $image = image::factory()->create();
+        $response = $this->json('POST', 'api/image', [
+            'name' => $image->name,
+            'img' => $image->img,
+            'user_id' => $image->user_id, 
+        ]);
         $response->assertStatus(401);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ImageController extends Controller
 {
@@ -81,8 +82,8 @@ class ImageController extends Controller
         // $image->save();
         // return $image;
         $image = image::find($id);
-        $image->name = $request->name;
-        $image->user_id = $request->user_id;
+        $image->name = $request->input('name', '');
+        $image->user_id = $request->input('user_id', 0);
   
         if ($request->hasfile('img')) {
             $destinationPath = 'images/imagesTable/'.$image->img;
