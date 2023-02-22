@@ -59,3 +59,8 @@ Clothes-Design(1-n): A garment is needed to make as many design the users want, 
 
 Restritions:
 Every single foreing key of the different tables aren't nullnable, since all relationships are 1 mandatory to many optionals. User doesn't need to have images or designs, but images and designs are always associated with a user. Clothes and images can be used or not to make designs, nonetheless, a design can be created just if it has a logo image an a garment.
+
+The database management system consists of a MySQL database, which we can access with our Laravel application through the Eloquent ORM. This not only allows us to obtain, introduce, modify and delete data thanks to the controllers, but we can also create the tables with their entities and foreign keys through migrations.
+
+The software requirements specification of our program includes a series of possible actions that can be carried out by two types of user: client and administrator.
+Both users can log in, log out and register. The client can create, delete and modify designs, which are based on images that the client adds (and can delete) and clothing items that the administrator adds, modifies and deletes.
