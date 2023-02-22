@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/Header";
-import AuthService from "../../services/auth.service";
 import authHeader from "../../services/auth-header";
 import "../styles.css";
 
@@ -14,7 +13,6 @@ const AddClothes = () => {
   const navigate = useNavigate();
 
   const postCloth = (e) => {
-    // e.preventDefault();
     let file = document.getElementById("uploadImage").files[0]
     let formdata = new FormData()
     formdata.append('name', name)

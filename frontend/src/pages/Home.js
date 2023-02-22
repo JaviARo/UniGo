@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./home.css";
 
 function Home() {
@@ -37,10 +36,6 @@ function Home() {
                 Registrarse
               </a>
             </div>
-            {/* <div id="imgContainer">
-              <img className="imgButton" src="img/google.png" alt="" />
-              <img className="imgButton" src="img/facebook.png" alt="" />
-            </div> */}
           </div>
         ) : null}
       </div>

@@ -12,18 +12,15 @@
 }
 
 #registerCanvas {
-  /* position: fixed; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   height: 75vh;
   width: 75vw;
   border-radius: 5px;
   background: rgba(206, 181, 167, 1);
   font-size: larger;
-  /* text-align: center; */
 }
 
 #registerPage #name {
@@ -70,5 +67,4 @@ input[type="submit"] {
   font-family: 'Raleway', sans-serif;
   color:rgba(60, 55, 68, 1);
   font-size: large;
-  /* margin-top: 3vh; */
 }

@@ -21,7 +21,6 @@ class DesignController extends Controller
 
     public function countByUserId($id) {
         return $this->showByUserId($id)->count();
-        // return $counter;
     }
 
     public function store(Request $request)
@@ -43,12 +42,6 @@ class DesignController extends Controller
         $design = design::find($id);
         return $design;
     }
-
-    // public function showUser($id)
-    // {
-    //     $design = design::find($id);
-    //     return $design;
-    // }
 
     public function update(Request $request, $id)
     {

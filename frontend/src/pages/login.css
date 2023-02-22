@@ -12,23 +12,19 @@
 }
 
 #loginCanvas {
-  /* position: fixed; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   height: 75vh;
   width: 75vw;
   border-radius: 5px;
   background: rgba(206, 181, 167, 1);
   font-size: larger;
-  /* text-align: center; */
 }
 
 #loginPage #name {
   position: relative;
-  /* display: inline-block; */
   font-family: 'Josefin Sans', sans-serif;
   font-size: large;
   top: 2vh;

@@ -13,7 +13,6 @@ const register = (dni, name, username, email, type, password, confirm_password) 
     confirm_password
   })
   .then((response) => {
-    console.log(response.data);
     if (response.data.data.token) {
       localStorage.setItem("user", JSON.stringify(response.data));
       localStorage.setItem("token", response.data.data.token);

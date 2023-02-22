@@ -10,7 +10,6 @@ import { HomeFooter } from "../components/Control";
 import "./login.css";
 import "./formLabel.css";
 
-// const endpoint = "http://localhost:8000/api/login/";
 
 const required = (value) => {
   if (!value) {
@@ -53,8 +52,6 @@ const Login = () => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(username, password).then(
         (response) => {
-          console.log(response);
-          // localStorage.setItem("token", response.data.data.token);
           navigate("/designs");
           window.location.reload();
         },
@@ -75,18 +72,6 @@ const Login = () => {
     }
   };
 
-  // const store = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post(endpoint, {
-  //       username: username,
-  //       password: password
-  //     });
-  //   } catch (error) {
-  //     console.error(error.response.data);
-  //   }
-  //   navigate("/designs");
-  // };
   return (
     <div id="background">
       <div id="loginPage">
@@ -142,35 +127,6 @@ const Login = () => {
               <CheckButton style={{ display: "none" }} ref={checkBtn} />
             </div>
           </Form>
-          {/* <form onSubmit={store}>
-            <div id="labelContainer">
-              <div id="username">
-                <label id="label">
-                  <p id="labelText">Nombre de usuario</p>
-                  <input
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    type="text"
-                    name="username"
-                  />
-                </label>
-              </div>
-            </div>
-            <div id="labelContainer">
-              <div id="password">
-                <label id="label">
-                  <p id="labelText">Contraseña</p>
-                  <input
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    type="text"
-                    name="password"
-                  />
-                </label>
-              </div>
-            </div>
-            <input type="submit" value="Iniciar sesión"></input>
-          </form> */}
         </div>
         <HomeFooter />
       </div>

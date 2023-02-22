@@ -1,0 +1,125 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "user",
+    "dateExported": "2023-02-22T19:20:36.413Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5b4ef4d9-9be6-4259-ba7c-30afa4a4f37e",
+            "colId": "c34c08c2-46bd-4a4c-bfb9-b4920892e771",
+            "containerId": "",
+            "name": "Get users",
+            "url": "localhost:8000/api/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-12-15T22:49:42.697Z",
+            "modified": "2022-12-18T20:17:59.278Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "3|9STRwGWXnJce1RoIrS79IYH91FGfhbh3Ac2s47gU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6e01bcee-336d-4ad9-9db8-f1ceffb7fa61",
+            "colId": "c34c08c2-46bd-4a4c-bfb9-b4920892e771",
+            "containerId": "",
+            "name": "Put user",
+            "url": "localhost:8000/api/user/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2022-12-15T22:49:42.699Z",
+            "modified": "2022-12-18T18:29:03.783Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"dni\": \"00000000B\",\n  \"name\": \"holo\",\n  \"username\": \"Javo\",\n  \"email\": \"javi@aleman.com\",\n  \"type\": \"c\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "3|9STRwGWXnJce1RoIrS79IYH91FGfhbh3Ac2s47gU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "64bf3127-cb78-44ba-b7a4-ccd7d2c3219a",
+            "colId": "c34c08c2-46bd-4a4c-bfb9-b4920892e771",
+            "containerId": "",
+            "name": "Delete user",
+            "url": "localhost:8000/api/appUser/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2022-12-15T22:49:42.700Z",
+            "modified": "2022-12-15T22:49:42.700Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f63d883f-9f32-4b8f-aa49-a1ad3e62d94d",
+            "colId": "c34c08c2-46bd-4a4c-bfb9-b4920892e771",
+            "containerId": "",
+            "name": "Get user",
+            "url": "localhost:8000/api/user/2/",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-01-06T16:09:24.377Z",
+            "modified": "2023-02-12T20:41:38.171Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "5|QiqiAXfGMro0c9X4zKGGTkAZ8AGMGCubYFgPWVex"
+            },
+            "tests": []
+        }
+    ]
+}

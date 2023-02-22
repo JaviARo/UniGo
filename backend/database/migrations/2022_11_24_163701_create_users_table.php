@@ -20,6 +20,15 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table("users")
+        ->insert([
+            "dni" => "99999999P",
+            "name" => "admin",
+            "username" => "admin",
+            "password" => bcrypt("admin"),
+            "email" => "admin@admin.com",
+            "type" => "a",
+        ]);
     }
 
     public function down()

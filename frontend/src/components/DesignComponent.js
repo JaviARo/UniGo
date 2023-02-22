@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import authHeader from "../services/auth-header";
 import axios from "axios";
@@ -45,24 +44,21 @@ export function DesignComponent(props) {
     } else {
       f = true;
     }
-
-    let fd = new FormData()
-    fd.append('name', props.name)
-    fd.append('position', props.position)
-    fd.append('size', props.size)
-    fd.append('favourite', f)
-    fd.append('user_id', props.user_id)
-    fd.append('image_id', props.image_id)
-    fd.append('clothes_id', props.clothes_id)
     
-    console.log(fd);
     axios({
       url: `${endpoint}/design/${props.id}`,
       method: "PUT",
       headers: authHeader(),
-      data: fd,
-      // processData: false
-    })
+      data: {
+        "name": props.name,
+        "position": props.position,
+        "size": props.size,
+        "favourite": f,
+        "user_id": props.user_id,
+        "image_id": props.image_id,
+        "clothes_id": props.clothes_id,
+      },
+    }).then(() => window.location.reload())
   };
 
   const navigateToEdit = () => {
@@ -96,9 +92,6 @@ export function DesignComponent(props) {
             </div>
           </Col>
         </Row>
-        {/* <div id="imgBackground"></div>
-          <div id="title">Título</div>
-          <div id="subtitle">Subtítulo</div> */}
       </div>
     
   );
@@ -122,9 +115,6 @@ export function CreateDesign() {
             </div>
           </Col>
         </Row>
-        {/* <div id="imgBackground"></div>
-          <div id="title">Título</div>
-          <div id="subtitle">Subtítulo</div> */}
       </div>
     </a>
   );

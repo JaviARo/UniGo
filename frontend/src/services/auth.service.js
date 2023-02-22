@@ -13,7 +13,6 @@ const register = (dni, name, username, email, type, password, confirm_password) 
     confirm_password
   })
   .then((response) => {
-    console.log(response.data);
     if (response.data.data.token) {
       localStorage.setItem("user", JSON.stringify(response.data));
       localStorage.setItem("token", response.data.data.token);
@@ -30,7 +29,6 @@ const login = (username, password) => {
       password,
     })
     .then((response) => {
-      console.log(response.data);
       if (response.data.data.token) {
         localStorage.setItem("user", JSON.stringify(response.data));
         localStorage.setItem("token", response.data.data.token);
@@ -50,7 +48,6 @@ const getCurrentUser = () => {
 };
 
 const userId = () => {
-  // return getCurrentUser().data.id;
   const user = JSON.parse(localStorage.getItem("user"));
   return user.data.id;
 } 

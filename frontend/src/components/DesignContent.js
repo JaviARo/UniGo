@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { isRouteErrorResponse, Link } from "react-router-dom";
 import { DesignComponent, CreateDesign } from "./DesignComponent";
 import "./designContent.css";
 import AuthService from "../services/auth.service";
@@ -20,15 +19,6 @@ function DesignContent() {
     haveDesigns(count);
 
   }, []);
-
-  const getAllDesigns = async () => {
-    const response = await axios({
-      url: `${endpoint}/designs`,
-      method: "GET",
-      headers: authHeader(),
-    })
-    setDesigns(response.data);
-  };
 
   const getDesignsByUser = async () => {
     const response = await axios({
@@ -51,7 +41,6 @@ function DesignContent() {
     if (count > 0) {
       setShow(true);
     }
-    console.log(count);
   };
 
   return (

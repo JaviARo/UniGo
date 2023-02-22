@@ -8,7 +8,6 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
-  /* backdrop-filter: blur(5px); */
 }
 
 #homeCanvas {
@@ -77,8 +76,6 @@
   font-size: larger;
   z-index: 1;
   justify-content: center;
-  /* align-items: center; */
-  /* visibility: hidden; */
 }
 
 .textButton {
@@ -101,10 +98,6 @@
   margin-bottom: 2.5vh;
   text-decoration: none;
 }
-/* #imgContainer {
-  position: relative;
-  
-} */
 
 .imgButton {
   height: 45px;

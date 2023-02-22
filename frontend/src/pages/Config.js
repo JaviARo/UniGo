@@ -1,5 +1,4 @@
 import { Header, Footer } from "../components/Control";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./config.css";
 import AuthService from "../services/auth.service";

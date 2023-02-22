@@ -1,6 +1,5 @@
 import { Header, Footer } from "../components/Control";
 import FilledContent from "../components/FilledContent";
-import "./editor.css";
 
 function Editor() {
   return (

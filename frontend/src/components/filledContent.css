@@ -12,8 +12,6 @@
   height: 65vh;
   width: 80vw;
   align-items: center;
-  /* justify-content: center; */
-  /* flex-wrap: wrap; */
   flex-direction: column;
 }
 

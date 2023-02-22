@@ -37,23 +37,6 @@ class ImageController extends Controller
         $image->user_id = $request->user_id;
 
         $image->save();
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'user_id' => 'required',
-        //     'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-  
-        // $input = $request->all();
-  
-        // if ($img = $request->file('img')) {
-        //     $destinationPath = 'images/imagesTable/';
-        //     $filename = date('YmdHis') . "." . $img->getClientOriginalExtension();
-        //     $img->move($destinationPath, $filename);
-        //     $input['img'] = "$filename";
-        // }
-    
-        // image::create($input);
     }
 
     public function show($id)
@@ -64,23 +47,6 @@ class ImageController extends Controller
 
     public function update(Request $request, $id)
     {
-        // $image = image::findOrFail($request->id);
-        // $image->name = $request->name;
-        // $image->user_id = $request->user_id;
-
-        // //$input = $request->all();
-
-        // if( $request->hasFile('img') ) {
-        //     $file = $request->file('img');
-        //     $destinationPath = 'images/imagesTable/';
-        //     $filename = time() . '-' . $file->getClientOriginalName();
-        //     $uploadSuccess = $request->file('img')->move($destinationPath, $filename);
-        //     $image->img = $destinationPath . $filename;
-        // }
-
-        // //$image->update($input);
-        // $image->save();
-        // return $image;
         $image = image::find($id);
         $image->name = $request->input('name', '');
         $image->user_id = $request->input('user_id', 0);
@@ -96,10 +62,7 @@ class ImageController extends Controller
             $img->move('images/imagesTable/', $filename);
             $image->img = $filename;
         }
-
-        // $image = image::find($id);
         $image->update();
-        // Post::findOrFail($id)->update($input);
     }
 
     public function destroy($id)

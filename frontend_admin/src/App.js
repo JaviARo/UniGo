@@ -19,8 +19,6 @@ function App() {
         <Route path="users" element={<Users />} />
 
         <Route path="add_clothes" element={<AddClothes />} />
-
-        {/* <Route component={PageNotFound} /> */}
       </Routes>
   );
 }

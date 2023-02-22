@@ -26,8 +26,6 @@ function App() {
         <Route path="edit/:id" element={<EditDesign />} />
         <Route path="config" element={<Config />} />
         <Route path="user" element={<User />} />
-
-        {/* <Route component={PageNotFound} /> */}
       </Routes>
   );
 }

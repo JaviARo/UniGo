@@ -1,1 +1,89 @@
-{"client":"Thunder Client","collectionName":"clothes","dateExported":"2022-12-19T18:44:06.583Z","version":"1.1","folders":[],"requests":[{"_id":"eabe0091-3431-4136-9c81-3ff1d35c99e6","colId":"16de8e42-72fd-484f-aa55-279615f4519e","containerId":"","name":"localhost:8000/api/cloth","url":"localhost:8000/api/cloth","method":"POST","sortNum":10000,"created":"2022-12-19T16:00:23.110Z","modified":"2022-12-19T16:00:23.110Z","headers":[],"params":[],"body":{"type":"formdata","raw":"","form":[{"name":"name","value":"Camisa"}],"files":[{"name":"img","value":"c:\\Users\\Javi\\Downloads\\patito_amarillo.jpg"}]},"tests":[]},{"_id":"74259921-b5a4-472b-a650-83e1c08c8016","colId":"16de8e42-72fd-484f-aa55-279615f4519e","containerId":"","name":"localhost:8080/api/clothes","url":"localhost:8000/api/clothes","method":"GET","sortNum":20000,"created":"2022-12-19T16:00:23.111Z","modified":"2022-12-19T16:00:23.111Z","headers":[],"params":[],"tests":[]},{"_id":"bfa17497-c8cc-471b-9d5d-0793c0e3b1c5","colId":"16de8e42-72fd-484f-aa55-279615f4519e","containerId":"","name":"localhost:8000/api/cloth/1","url":"localhost:8000/api/cloth/1","method":"GET","sortNum":30000,"created":"2022-12-19T16:00:23.112Z","modified":"2022-12-19T16:00:23.112Z","headers":[],"params":[],"tests":[]},{"_id":"7f57f578-5a69-4c8a-8eab-504bdc94c8fd","colId":"16de8e42-72fd-484f-aa55-279615f4519e","containerId":"","name":"localhost:8000/api/cloth/1","url":"localhost:8000/api/cloth/1","method":"PUT","sortNum":40000,"created":"2022-12-19T16:00:23.113Z","modified":"2022-12-19T16:00:23.113Z","headers":[],"params":[],"body":{"type":"formdata","raw":"","form":[{"name":"name","value":"Pantalon"}],"files":[{"name":"","value":"c:\\Users\\Javi\\Downloads\\patito_spiderman.jpg"}]},"tests":[]}]}
+{
+    "client": "Thunder Client",
+    "collectionName": "clothes",
+    "dateExported": "2023-02-22T19:20:53.250Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "763866b2-0fef-4091-8d14-4558631423d3",
+            "colId": "18cde03b-5735-4044-919b-2c37402a7a34",
+            "containerId": "",
+            "name": "Post cloth",
+            "url": "localhost:8000/api/cloth",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-12-18T20:23:03.741Z",
+            "modified": "2023-02-22T19:03:53.718Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Pantalon"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "img",
+                        "value": "c:\\Users\\redbe\\OneDrive\\Imágenes\\prendas\\pantalon largo.png"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "3|RpFYTafV4AyS0GFYiBG6YSQCu2zb3SbPU24YmPVB"
+            },
+            "tests": []
+        },
+        {
+            "_id": "13fad15e-ebee-4453-ac06-522546fe19a8",
+            "colId": "18cde03b-5735-4044-919b-2c37402a7a34",
+            "containerId": "",
+            "name": "Get clothes",
+            "url": "localhost:8000/api/clothes",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-12-18T20:23:03.742Z",
+            "modified": "2022-12-18T20:23:03.742Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7ff483eb-7d33-40d7-9a7a-5fc20eb82343",
+            "colId": "18cde03b-5735-4044-919b-2c37402a7a34",
+            "containerId": "",
+            "name": "Get cloth",
+            "url": "localhost:8000/api/cloth/1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2022-12-18T20:23:03.743Z",
+            "modified": "2023-02-16T01:12:39.328Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "4|nQIKnOON8Fk4LLiEt5p7Pp35HlGsDaRxjQOkgf3h"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ae4298d6-77dd-4810-b0fc-73f280bddd5d",
+            "colId": "18cde03b-5735-4044-919b-2c37402a7a34",
+            "containerId": "",
+            "name": "Delete cloth",
+            "url": "localhost:8000/api/cloth/1",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-02-22T19:15:47.791Z",
+            "modified": "2023-02-22T19:16:02.567Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

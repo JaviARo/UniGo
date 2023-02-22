@@ -1,0 +1,133 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "designs",
+    "dateExported": "2023-02-22T19:20:56.182Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f6f440f1-cd4b-441a-b535-fa9c953fad51",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Post design",
+            "url": "localhost:8000/api/design",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-02-16T01:38:36.539Z",
+            "modified": "2023-02-16T01:43:33.132Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"1\",\n  \"position\":\"x=0,y=0\",\n  \"size\":20,\n  \"favourite\":false,\n  \"image_id\":1,\n  \"clothes_id\":1,\n  \"user_id\":1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "4|nQIKnOON8Fk4LLiEt5p7Pp35HlGsDaRxjQOkgf3h"
+            },
+            "tests": []
+        },
+        {
+            "_id": "01b956a9-8611-482a-ace7-3debfcbe5464",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Get designs",
+            "url": "localhost:8000/api/designs",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-02-16T01:44:06.450Z",
+            "modified": "2023-02-16T01:44:29.404Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "4|nQIKnOON8Fk4LLiEt5p7Pp35HlGsDaRxjQOkgf3h"
+            },
+            "tests": []
+        },
+        {
+            "_id": "81459567-38d8-417b-b3da-6908a71d3c51",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Put design",
+            "url": "localhost:8000/api/design/3",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-02-16T01:43:39.329Z",
+            "modified": "2023-02-16T01:46:14.368Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"1\",\n  \"position\":\"x=0,y=0\",\n  \"size\":20,\n  \"favourite\":true,\n  \"image_id\":1,\n  \"clothes_id\":1,\n  \"user_id\":1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "4|nQIKnOON8Fk4LLiEt5p7Pp35HlGsDaRxjQOkgf3h"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d33710fa-7b71-4376-8822-67a4ea6a9b85",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Delete design",
+            "url": "localhost:8000/api/design/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-02-16T14:48:45.414Z",
+            "modified": "2023-02-16T14:49:25.765Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "11|5Ih5GQhJZaeSbcquDAcPtjb7WaKawlKKiroFiaAR"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e83f3c11-57c1-4ea2-bae3-16c28a7f3599",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Get design",
+            "url": "localhost:8000/api/design/2",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-02-22T19:16:30.921Z",
+            "modified": "2023-02-22T19:16:45.170Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "33bcaf4a-9370-4895-a2c0-99e403295024",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Get designs by user id",
+            "url": "localhost:8000/api/designs/user/2",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-02-22T19:18:33.121Z",
+            "modified": "2023-02-22T19:19:07.354Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8c22f709-920a-4030-96ac-dd4691873d0a",
+            "colId": "21c6cacc-b934-4399-8413-568aa2da2fa3",
+            "containerId": "",
+            "name": "Get designs count by user id",
+            "url": "localhost:8000/api/designs/count/2",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-02-22T19:19:23.994Z",
+            "modified": "2023-02-22T19:19:33.534Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

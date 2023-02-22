@@ -9,7 +9,6 @@ const endpoint = "http://localhost:8000/api";
 
 function UserContent() {
   const userId = AuthService.userId();
-  const [user, setUser] = useState("");
   const [show, setShow] = useState(true);
 
   const [username, setUsername] = useState("");
@@ -22,14 +21,15 @@ function UserContent() {
   }, []);
 
   const getUser = async () => {
-    console.log(authHeader());
     const response = await axios({
       url: `${endpoint}/user/${userId}`,
       method: "GET",
       headers: authHeader(),
     })
-    console.log(response);
-    setUser(response.data);
+    setUsername(response.data.username);
+    setName(response.data.name);
+    setDni(response.data.dni);
+    setEmail(response.data.email);
   };
 
   const updateUser = (e) => {
@@ -39,7 +39,7 @@ function UserContent() {
       method: "PUT",
       headers: authHeader(),
       data: {username, name, dni, email}
-    })
+    }).then(() => {setShow(true)})
   }
 
   function changeUserContent() {
@@ -60,18 +60,18 @@ function UserContent() {
       {show ? (
         <div id="userContentBackground">
           <div id="userData">
-            <h2 id="username">{user.username}</h2>
+            <h2 id="username">{username}</h2>
             <div className="userAttribute">
               <h3 className="userLabel">Nombre:</h3>
-              <h3 className="userInput">{user.name}</h3>
+              <h3 className="userInput">{name}</h3>
             </div>
             <div className="userAttribute">
               <h3 className="userLabel">DNI/CIF:</h3>
-              <h3 className="userInput">{user.dni}</h3>
+              <h3 className="userInput">{dni}</h3>
             </div>
             <div className="userAttribute">
               <h3 className="userLabel">Correo electrónico:</h3>
-              <h3 className="userInput">{user.email}</h3>
+              <h3 className="userInput">{email}</h3>
             </div>
           </div>
           <div id="userButtons">
@@ -87,7 +87,7 @@ function UserContent() {
                 <input
                   id="username"
                   type="text"
-                  placeholder={user.username}
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <div className="userAttribute">
@@ -95,7 +95,7 @@ function UserContent() {
                   <input
                     className="userInput"
                     type="text"
-                    placeholder={user.name}
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
@@ -104,7 +104,7 @@ function UserContent() {
                   <input
                     className="userInput"
                     type="text"
-                    placeholder={user.dni}
+                    value={dni}
                     onChange={(e) => setDni(e.target.value)}
                   />
                 </div>
@@ -113,7 +113,7 @@ function UserContent() {
                   <input
                     className="userInput"
                     type="text"
-                    placeholder={user.email}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>

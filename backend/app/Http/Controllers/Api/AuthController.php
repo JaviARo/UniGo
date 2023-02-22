@@ -48,34 +48,6 @@ class AuthController extends BaseController
         return $this->sendResponse($success, 'User created successfully.');
     }
 
-    // public function register(Request $request) {
-    //     $request->validate([
-    //         'dni' => 'required',
-    //         'name' => 'required',
-    //         'username' => 'required|unique:users',
-    //         'password' => 'required|confirmed',
-    //         //'confirm_password' => 'required|same:password',
-    //         'email' => 'required|email|unique:users',
-    //         'type' => 'required',
-            
-    //     ]);
-
-    //     $user = new User();
-    //     $user->dni = $request->dni;
-    //     $user->name = $request->name;
-    //     $user->username = $request->username;
-    //     $user->password = Hash::make($request->password);
-    //     $user->email = $request->email;
-    //     $user->type = $request->type;
-
-    //     $user->save();
-
-    //     return response()->json([
-    //         "status" => 1,
-    //         "msg" => "¡Registro de usuario exitoso!",
-    //     ]);
-    // }
-
     public function userProfile() {
         return response()->json([
             "status" => 0,

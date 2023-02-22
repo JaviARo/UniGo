@@ -1,19 +1,9 @@
 import React from "react";
-// import "./formLabel.css";
 
 function FormLabel(props) {
   function changeLabel() {
     var label = document.getElementById(props.name);
-    console.log(props);
-    //   { document.getElementById("label") ?
-    //   label.classList.remove("label")
-    //   label.classList.add("selected") :
-    //   label.classList.add("label");
-    // }
-
-    // label.classList.remove("label");
     label.classList.remove("labelText");
-    // label.classList.add("selected");
     label.classList.add("labelTextSelected");
   }
 
@@ -24,7 +14,6 @@ function FormLabel(props) {
           <p id="labelText">{props.label}</p>
           <input 
             value={props.value}
-            // onChange={akaok}
             type="text" 
             name={props.name} 
             onClick={changeLabel} 

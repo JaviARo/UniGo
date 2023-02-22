@@ -11,9 +11,7 @@ function ImagesComponent() {
   const userId = AuthService.userId();
   const [images, setImages] = useState([]);
 
-  const [name, setName] = useState('');
   const [img, setImg] = useState([]);
-  const [user_id, setUser_id] = useState(userId);
 
   const querystring = window.location.search;
   let params = new URLSearchParams(querystring);
@@ -40,8 +38,6 @@ function ImagesComponent() {
     formdata.append('img', file)
     formdata.append('user_id', userId)
 
-    console.log(file)
-
     axios({
       url: `${endpoint}/image`,
       method: "POST",
@@ -50,17 +46,7 @@ function ImagesComponent() {
     }).then((res) => {
       getImagesByUser();
     })
-
-    // window.location.reload();
   };
-
-  const haveImage = () => {
-    if(document.getElementById("uploadImage").files[0].name!=null){
-      return true;
-    } else {
-      return false;
-    }
-  }
 
   return (
     <div id="clothesContentHeight">
