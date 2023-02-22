@@ -8,19 +8,19 @@ This is a mobile application to makes designs usign a logo image that you upload
 
 ## Index
 - [Where does the need come from?](#Where-does-the-need-come-from?)
-- What company is this app developed for?
-- Principal idea
-- Data model
-- Use cases
-- User requeriments
-- First design
-- Usability
-- Installation Manual
-- User Manual
-- Technology stack
-- Technologies comparison
-- Planning
-- Conclusions
+- [What company is this app developed for?](#What-company-is-this-app-developed-for?)
+- [Principal idea](#Principal-idea)
+- [Data model](#Data-model)
+- [Use cases](#Use-cases)
+- [User requeriments](#User-requeriments)
+- [First design](#First-design)
+- [Usability](#Usability)
+- [Installation Manual](#Installation-Manual)
+- [User Manual](#User-Manual)
+- [Technology stack](#Technology-stack)
+- [Technologies comparison](#Technologies-comparison)
+- [Planning](#Planning)
+- [Conclusions](#Conclusions)
 - [References](#References)
 
 ## Where does the need come from?
@@ -249,6 +249,13 @@ npm start
 For the frontend_admin the steps are the same as the ones for frontend.
 
 ## User Manual
+### Index
+- [How to use UniGo?](#How-to-use-UniGo?)
+- [Control menu](#Control-menu)
+- [How can I make a design?](#How-can-I-make-a-design?)
+- [How did I change my profile data?](#How-did-I-change-my-profile-data?)
+- [How can I get more help?](#How-can-I-get-more-help?)
+
 ### How to use UniGo?
 To use this application you must register on it. So, first of all, enter the application, and press the text "Registrarse". Then you should fill the fields with your data, and the press again the text "Registrarse".
 
@@ -285,7 +292,6 @@ To store the design you have to fill the design name, select the size and positi
 ![11](https://user-images.githubusercontent.com/95490801/220698623-dde50400-f75f-42bd-9a80-05d53cc0455e.png)
 
 
-
 ### How did I change my profile data?
 For changing your personal data you have to press the gears at the top of the screen, then press "Ver datos de usuario".
 
@@ -296,6 +302,9 @@ Once there you have to touch the "Editar perfil" button, press the fields you wa
 ![14](https://user-images.githubusercontent.com/95490801/220698804-8f26a966-9eab-4eb4-ade8-1edfed1a5a95.png)
 ![15](https://user-images.githubusercontent.com/95490801/220698823-8d36005e-75fd-4c2c-afc2-3d6e4bca9a15.png)
 ![19](https://user-images.githubusercontent.com/95490801/220698834-ef5ecd62-81d3-4b5a-95d9-f9d83c5edb75.png)
+
+### How can I get more help?
+To get more help you can access to the help system clicking the top left button as was mentioned before.
 
 ## User help inside the application
 To access the user help system in the app you should press the top left button when you log in. And then you have access to help, with index, context and a search bar
