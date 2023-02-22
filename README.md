@@ -6,6 +6,23 @@
 
 This is a mobile application to makes designs usign a logo image that you upload to the app and a garment of a selection
 
+## Index
+- [Where does the need come from?](#Where does the need come from?)
+- What company is this app developed for?
+- Principal idea
+- Data model
+- Use cases
+- User requeriments
+- First design
+- Usability
+- Installation Manual
+- User Manual
+- Technology stack
+- Technologies comparison
+- Planning
+- Conclusions
+- References
+
 ## Where does the need come from?
 Some customers that want to buy clothes, takes the decision of go shoping at clothing stores or maybe they navigate through internet searching designs on clothes of their choise, without success in finding what they were looking for.
 This app can be the solution for their problem. Inside this, they can personalize their clothes, making a design that they will never find in any store, furthermore, this is also a big deal for institutions that want an easy way to design uniforms, have a collection of them, and their logos.
@@ -306,3 +323,45 @@ We can compare the ReactJS framework with another popular framework like Angular
 
 ### Backend
 Let's compare Laravel framework with Symfony
+- Laravel already comes with a standardized set of APIs that works to cache views, whereas symfony caches views and source code by default
+- Laravel uses Eloquent while Symfony uses Doctrine for its data processing. In the first, it is not necessary to declare fields when migrating a database. In Symfony, the database transfer is automatic, but the developer has to identify the particular fields in the code.
+- Laravel has a worse maintenance than Symphony
+
+### Database
+For the database I'm going to compare MySQL with PostgreSQL
+- MySQL isn’t as fully SQL-compliant as PostgreSQL, which does support all of the sub-queries, meanwhile MySQL does not support several sub-queries like “LIMIT” or “ALL"
+- MySQL support less languages than PostgreSQL
+- MySQL is generally known to be faster with read-only commands at the cost of concurrency, while PostgreSQL works better with read-write operations, massive datasets, and complicated queries
+- MySQL is a purely relational database, whereas PostgreSQL is an object-relational database
+
+## Planning
+For my personal organization in this project I slightly used the app Trello.
+
+https://trello.com/b/5iwR27nM/
+
+## Conclusions
+From my point of view, this project was extensive, I have several difficulties trying to put in practise the ideas I had, for time issues I had to cut a lot of things, and didn't put in practice some others. The harder thing for me was planning for this proyect. Although, I notice that now I am much more capable coding than before. Moreover, I have taken a liking to it more, especially in the design part and despite the adversities I am proud of the result of the application.
+
+## References
+
+https://laravel.com/docs/9.x
+A lot of https://stackoverflow.com/ posts
+
+### Videos
+https://www.youtube.com/watch?v=dyQLsQm1EtI
+https://www.youtube.com/watch?v=JRUOeMkwkIo
+https://www.youtube.com/watch?v=rLoWMU4L_qE
+https://www.youtube.com/watch?v=_aj_adg1jeI
+https://www.youtube.com/watch?v=2pppMAtIlro
+https://www.youtube.com/watch?v=YRh7sYrxxM8
+https://www.youtube.com/watch?v=E5ANuFo-Wno
+https://www.youtube.com/watch?v=Vb9BPPlgfPU
+https://www.youtube.com/watch?v=tFr0Vg1q9Eg
+https://www.youtube.com/watch?v=xBQhGg_jmPY
+https://www.youtube.com/watch?v=ZInJ40iyi7E
+https://www.youtube.com/watch?v=Qp-fC9zXyJ4
+https://www.youtube.com/watch?v=amwXrsHxoIg
+https://www.youtube.com/watch?v=IgcyC30_6zE
+https://www.youtube.com/watch?v=e9mZYHMVGlk
+https://www.youtube.com/watch?v=C4vQ-nSNAgA
+https://www.youtube.com/watch?v=0TTa5Ulmgds
