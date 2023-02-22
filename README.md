@@ -7,7 +7,7 @@
 This is a mobile application to makes designs usign a logo image that you upload to the app and a garment of a selection
 
 ## Index
-- [Where does the need come from?](#Where does the need come from?)
+- [Where does the need come from?](#Where-does-the-need-come-from?)
 - What company is this app developed for?
 - Principal idea
 - Data model
