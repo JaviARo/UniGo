@@ -21,7 +21,7 @@ This is a mobile application to makes designs usign a logo image that you upload
 - Technologies comparison
 - Planning
 - Conclusions
-- References
+- [References](References)
 
 ## Where does the need come from?
 Some customers that want to buy clothes, takes the decision of go shoping at clothing stores or maybe they navigate through internet searching designs on clothes of their choise, without success in finding what they were looking for.
