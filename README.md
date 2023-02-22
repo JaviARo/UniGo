@@ -12,6 +12,7 @@ This is a mobile application to makes designs usign a logo image that you upload
 - [Principal idea](#Principal-idea)
 - [Data model](#Data-model)
 - [Use cases](#Use-cases)
+- [Testing API](#Testing-api)
 - [User requeriments](#User-requeriments)
 - [First design](#First-design)
 - [Usability](#Usability)
@@ -96,6 +97,15 @@ The database management system consists of a MySQL database, which we can access
 ### ERS Description
 The software requirements specification of our program includes a series of possible actions that can be carried out by two types of user: client and administrator.
 Both users can log in, log out and register. The client can create, delete and modify designs, which are based on images that the client adds (and can delete) and clothing items that the administrator adds, modifies and deletes.
+
+## Testing API
+For testing the API routes I used an extension called Thunder Client, similar to Postman but integrated in Visual Studio Code.
+
+The collections of requests are in the request folder on default project folder, they can be imported in collections, and to use all routes except from register and login, you must have a token first and use it in auth->bearer->bearer token. So maybe you have to create a user to have a token.
+
+![import](https://user-images.githubusercontent.com/95490801/220737728-47235dbb-7f0f-4556-b69d-b642a6387946.png)
+![prueba token](https://user-images.githubusercontent.com/95490801/220737732-e51f97f6-c571-423c-801d-11d2b5086e25.png)
+
 
 ## User requeriments
 - R1: The user app is for smartphones and the administrator app is for desktop.
