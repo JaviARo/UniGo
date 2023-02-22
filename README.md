@@ -7,8 +7,8 @@
 This is a mobile application to makes designs usign a logo image that you upload to the app and a garment of a selection
 
 ## Index
-- [Where does the need come from?](#Where-does-the-need-come-from?)
-- [What company is this app developed for?](#What-company-is-this-app-developed-for?)
+- [Where does the need come from?](#Where-does-the-need-come-from)
+- [What company is this app developed for?](#What-company-is-this-app-developed-for)
 - [Principal idea](#Principal-idea)
 - [Data model](#Data-model)
 - [Use cases](#Use-cases)
@@ -250,11 +250,11 @@ For the frontend_admin the steps are the same as the ones for frontend.
 
 ## User Manual
 ### Index
-- [How to use UniGo?](#How-to-use-UniGo?)
+- [How to use UniGo?](#How-to-use-UniGo)
 - [Control menu](#Control-menu)
-- [How can I make a design?](#How-can-I-make-a-design?)
-- [How did I change my profile data?](#How-did-I-change-my-profile-data?)
-- [How can I get more help?](#How-can-I-get-more-help?)
+- [How can I make a design?](#How-can-I-make-a-design)
+- [How did I change my profile data?](#How-did-I-change-my-profile-data)
+- [How can I get more help?](#How-can-I-get-more-help)
 
 ### How to use UniGo?
 To use this application you must register on it. So, first of all, enter the application, and press the text "Registrarse". Then you should fill the fields with your data, and the press again the text "Registrarse".
