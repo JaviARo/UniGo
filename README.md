@@ -353,7 +353,9 @@ From my point of view, this project was extensive, I have several difficulties t
 
 ## References
 
-https://laravel.com/docs/9.x  A lot of https://stackoverflow.com/ posts
+https://laravel.com/docs/9.x
+
+A lot of https://stackoverflow.com/ posts
 
 ### Videos
 https://www.youtube.com/watch?v=dyQLsQm1EtI
