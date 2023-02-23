@@ -61,21 +61,17 @@ export function DesignComponent(props) {
     }).then(() => window.location.reload())
   };
 
-  const navigateToEdit = () => {
-    navigate(`/edit/${props.id}`)
-  }
-
   return (
       <div id="component">
         <Row align="middle">
-          <Col className="rowDesign" span={1} onClick={navigateToEdit}></Col>
-          <Col className="rowDesign" span={10} onClick={navigateToEdit}>
+          <Col className="rowDesign" span={1}></Col>
+          <Col className="rowDesign" span={10}>
             <div id="imgBackground">
               <img className="designComponentImg" src={getThisClothImg(props.clothes_id)}/>
             </div>
           </Col>
-          <Col className="rowDesign" span={1} onClick={navigateToEdit}></Col>
-          <Col className="rowDesign" span={9} onClick={navigateToEdit}>
+          <Col className="rowDesign" span={1}></Col>
+          <Col className="rowDesign" span={9}>
             <div id="componentText">
               <div id="title">{props.name}</div>
               <div id="subtitle">{getThisClothName(props.clothes_id)}</div>
