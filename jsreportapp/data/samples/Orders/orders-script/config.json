@@ -1,0 +1,16 @@
+{
+    "shortid": "BJX1Jw82ce",
+    "name": "orders-script",
+    "inheritedReadPermissions": [],
+    "inheritedEditPermissions": [],
+    "creationDate": {
+        "$$date": 1677190612236
+    },
+    "modificationDate": {
+        "$$date": 1677198376830
+    },
+    "_id": "Yuae63pWwCGKJ2vO",
+    "$entitySet": "scripts",
+    "scope": "template",
+    "isGlobal": false
+}

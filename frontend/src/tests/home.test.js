@@ -7,6 +7,6 @@ beforeEach(() => render(<Home/>));
 
 describe("Home", () => {
   test("Debe tener botón de entrar", () => {
-    expect(screen.queryByText(/Entrar/)).toBeInTheDocument();
+    expect(screen.queryByText(/Entrarr/)).toBeInTheDocument();
   })
 })

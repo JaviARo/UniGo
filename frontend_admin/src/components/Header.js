@@ -27,6 +27,7 @@ const Header = () => {
       <p onClick={navigateToClothes}>Prendas de ropa</p>
       <p onClick={navigateToImages}>Imágenes</p>
       <p onClick={navigateToDesigns}>Diseños</p>
+      <a href="http://localhost:5488/templates/rkJTnK2ce">Informe</a>
     </div>
   )
 } 

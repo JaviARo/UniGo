@@ -16,3 +16,9 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+#header a {
+  color: #D9D9D9;
+  text-decoration: none;
+  cursor: pointer;
+}

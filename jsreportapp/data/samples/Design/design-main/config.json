@@ -1,0 +1,27 @@
+{
+    "shortid": "rkJTnK2ce",
+    "recipe": "chrome-pdf",
+    "engine": "handlebars",
+    "data": null,
+    "name": "design-main",
+    "chrome": {
+        "printBackground": true,
+        "marginTop": "1cm",
+        "marginRight": "1cm",
+        "marginBottom": "1cm",
+        "marginLeft": "1cm"
+    },
+    "creationDate": {
+        "$$date": 1677190612175
+    },
+    "modificationDate": {
+        "$$date": 1677198799145
+    },
+    "_id": "EvJEnxLyvLO3lr0r",
+    "$entitySet": "templates",
+    "scripts": [
+        {
+            "shortid": "6zsUfUzvRl"
+        }
+    ]
+}

@@ -63,4 +63,11 @@ class DesignController extends Controller
         $design = design::destroy($id);
         return $design;
     }
+
+    public function createJson()
+    {
+        $design = design::all();
+        $data = ['design'=>$design];
+        return response()->json($data, 200, []);
+    }
 }

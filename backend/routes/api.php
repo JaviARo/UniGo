@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'signin']);
 Route::post('register', [AuthController::class, 'signup']);
 
+Route::get('designJson',[DesignController::class, 'createJson']);
+
 Route::group( ['middleware' => ["auth:sanctum"]], function(){
     //rutas
     Route::get('user-profile', [AuthController::class, 'userProfile']);
